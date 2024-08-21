@@ -25,8 +25,6 @@ public class PlayerShoot : MonoBehaviour
         {
             ShootProjectile();
         }
-
-
     }
 
     private void ShootProjectile()

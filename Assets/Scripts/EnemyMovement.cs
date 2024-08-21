@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     Vector2 playerPosition;
 
     GameObject player;
+    [SerializeField] GameObject enemyFallen;
 
     // on Start
     private void Start()
@@ -47,4 +48,14 @@ public class EnemyMovement : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Projectile")
+        {
+            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 90));
+            fallenEnemy.transform.parent = player.transform.parent;
+        }
+    }
+
 }

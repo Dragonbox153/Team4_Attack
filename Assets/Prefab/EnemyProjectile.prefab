@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  restartScreenPrefab: {fileID: 586832704722961659, guid: c06b9c8890fd9264287eea5adabd8489, type: 3}
 --- !u!50 &3923515968050144127
 Rigidbody2D:
   serializedVersion: 4

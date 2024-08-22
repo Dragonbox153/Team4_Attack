@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
 
     GameObject player;
     [SerializeField] GameObject enemyFallen;
+    [SerializeField] EnemySpawner spawner;
 
     // on Start
     private void Start()

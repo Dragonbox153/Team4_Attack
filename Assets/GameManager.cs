@@ -41,9 +41,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        _baseTimeElapsed += Time.deltaTime;
+        _baseTimeElapsed += Time.deltaTime * DayNightCycleSpeedDelta;
 
-        DayNightCyclePNG_angle = Time.deltaTime * DayNightCycleSpeedDelta;
+        DayNightCyclePNG_angle = _baseTimeElapsed;
 
         BGSpriteRenderer.transform.eulerAngles = new Vector3(0,0,DayNightCyclePNG_angle);
 

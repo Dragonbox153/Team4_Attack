@@ -27,5 +27,10 @@ public class EnemyFall : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyMovement>().EnemyDied();
+        }
     }
 }

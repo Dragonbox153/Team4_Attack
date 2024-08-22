@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6253835598306550518}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.41364133, w: 0.9104399}
-  m_LocalPosition: {x: -5.36, y: 6.29, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2066887044463022042}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 48.868}
+  m_Father: {fileID: 8814001970635392711}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3187215566071102819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,6 +86,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7877301253246267712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8814001970635392711}
+  m_Layer: 0
+  m_Name: RotationPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8814001970635392711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877301253246267712}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.34070775, w: 0.94016933}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1148302915644635350}
+  m_Father: {fileID: 2066887044463022042}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 39.84}
 --- !u!1 &8822026731380903784
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1148302915644635350}
+  - {fileID: 8814001970635392711}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8901317841370089401
@@ -252,9 +284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Speed: 10
-  ShootingPoint: {fileID: 8822026731380903784}
-  LeftBoundary: -7.2
-  RightBoundary: 7.2
+  TurretAngleChangeDelta: 20
+  TurretRotationPivot: {fileID: 7877301253246267712}
 --- !u!50 &3834566249267606085
 Rigidbody2D:
   serializedVersion: 4

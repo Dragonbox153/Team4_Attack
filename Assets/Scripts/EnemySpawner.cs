@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] public int spawnY = 5;
-    [SerializeField] int spawnX = 11;
+    [SerializeField] public float spawnY = 5;
+    [SerializeField] float spawnX = 11;
     [SerializeField] int spawnPeriod = 6;
     [SerializeField] float time = 6;
 
@@ -24,8 +24,8 @@ public class EnemySpawner : MonoBehaviour
         // if time is over 6 seconds
         if(time >= spawnPeriod)
         {
-            int randomY = Random.Range(0,  spawnY);
-            int randomX = spawnX;
+            float randomY = Random.Range(0,  spawnY);
+            float randomX = spawnX;
             int enemyType = Random.Range(0, enemies.Length + 1);
 
             var enemy = Instantiate(enemies[Random.Range(0, enemies.Length)]);
@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
         time += Time.deltaTime;
     }
 
-    int FlipX()
+    float FlipX()
     {
         if (Random.Range(0, 2) == 0)
         {

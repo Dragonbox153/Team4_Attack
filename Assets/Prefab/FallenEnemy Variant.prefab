@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 4289050770142131667, guid: 9a398f3f28befed44b172d27e13d1bf0, type: 3}
+    - target: {fileID: 1660480375953110850, guid: 7b030e9decc4d8f41898666917c67281, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660480375953110850, guid: 7b030e9decc4d8f41898666917c67281, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660480375953110850, guid: 7b030e9decc4d8f41898666917c67281, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660480375953110850, guid: 7b030e9decc4d8f41898666917c67281, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537528053972179890, guid: 7b030e9decc4d8f41898666917c67281, type: 3}
       propertyPath: m_Name
       value: FallenEnemy Variant
@@ -109,7 +125,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.7875, y: 0.475}
-    newSize: {x: 4.22, y: 2.82}
+    newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

@@ -137,7 +137,10 @@ MonoBehaviour:
   spawnX: 10
   spawnPeriod: 6
   time: 6
-  enemies: {fileID: 7823893143214668409, guid: 0da0d2cafed717646836f28edcaa892a, type: 3}
+  enemies:
+  - {fileID: 7823893143214668409, guid: 0da0d2cafed717646836f28edcaa892a, type: 3}
+  - {fileID: 1509097016881279067, guid: cb3676103fcad864ea3ecc5624f4b68e, type: 3}
+  - {fileID: 8291539808208243608, guid: f6d09a1a12d17bb4783924f054145725, type: 3}
 --- !u!114 &8393775249059918308
 MonoBehaviour:
   m_ObjectHideFlags: 0

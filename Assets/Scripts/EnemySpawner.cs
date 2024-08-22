@@ -63,6 +63,7 @@ public class EnemySpawner : MonoBehaviour
                     randomX = Random.Range(-spawnX + 1, spawnX - 1);
                     break;
              }
+
             enemy.transform.position = new Vector2 (randomX, randomY);
             enemy.transform.SetParent(attackLevel.transform);
 
@@ -76,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (Random.Range(0, 2) == 0)
         {
-            return -spawnX;
+            return spawnX;
         }
         else
         {

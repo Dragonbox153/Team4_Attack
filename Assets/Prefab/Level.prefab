@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 6923955055974340502}
   - component: {fileID: 4998975219068446583}
   - component: {fileID: 8393775249059918308}
+  - component: {fileID: 573096137847906228}
   m_Layer: 0
   m_Name: Level
   m_TagString: Level
@@ -162,6 +163,24 @@ MonoBehaviour:
   HighTide: {x: 0, y: 2.5, z: 0}
   MidTide: {x: 0, y: 0, z: 0}
   LowTide: {x: 0, y: -2.5, z: 0}
+--- !u!114 &573096137847906228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527624765618842558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa77331eb1235b74cbdf4dcad54aa332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnY: -5
+  spawnX: 11
+  spawnPeriod: 6
+  time: 6
+  waterEnemies:
+  - {fileID: 6097506304418689146, guid: b389a15c3ee3c1a4fba27f2b7f27e197, type: 3}
 --- !u!1001 &6714720337524481112
 PrefabInstance:
   m_ObjectHideFlags: 0

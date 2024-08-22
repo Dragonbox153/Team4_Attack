@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DroneMovement : MonoBehaviour
 {
-    [SerializeField] float enemySpeed = 0.05f;
+    [SerializeField] float enemySpeed = 3f;
     [SerializeField] public float divePoint = 1;
     Vector2 enemySpawnPoint;
     Vector2 playerPosition;

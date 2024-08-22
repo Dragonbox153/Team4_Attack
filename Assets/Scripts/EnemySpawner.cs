@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
             float randomX = spawnX;
             int enemyType = Random.Range(0, enemies.Length + 1);
 
-            var enemy = Instantiate(enemies[Random.Range(0, enemies.Length)]);
+            var enemy = Instantiate(enemies[Random.Range(0, enemyType)]);
 
             switch(enemyType) { 
                 case 0:

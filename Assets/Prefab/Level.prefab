@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a7e1805148b884caa388a5a9465dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnY: 5
+  spawnY: 4.5
   spawnX: 10
   spawnPeriod: 6
   time: 6
@@ -160,6 +160,7 @@ MonoBehaviour:
   DayNightCycleSpeedDelta: 7.47
   TideChangeDuration: 2
   CurrentTideLevel: -2.5
+  _transitioning: 0
   HighTide: {x: 0, y: 2.5, z: 0}
   MidTide: {x: 0, y: 0, z: 0}
   LowTide: {x: 0, y: -2.5, z: 0}

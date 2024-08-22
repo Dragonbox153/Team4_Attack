@@ -8,8 +8,18 @@ public class PlayerMovement : MonoBehaviour
     public GameObject ShootingPoint;
     public float LeftBoundary, RightBoundary;
 
+    private void Start()
+    {
+        float rightEdgeWorldPositionX = Camera.main.ViewportToWorldPoint(new Vector3(1, 0.5f, Camera.main.nearClipPlane)).x;
+        float leftEdgeWorldPositionX = Camera.main.ViewportToWorldPoint(new Vector3(0, 0.5f, Camera.main.nearClipPlane)).x;
+
+        LeftBoundary = leftEdgeWorldPositionX + 0.5f;
+        RightBoundary = rightEdgeWorldPositionX - 0.5f;
+    }
+
     private void Update()
     {
+
         if (Input.GetKey(KeyCode.A))
         {
             if (transform.position.x < LeftBoundary) return;

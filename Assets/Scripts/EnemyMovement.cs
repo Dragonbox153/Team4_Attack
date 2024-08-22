@@ -53,7 +53,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Projectile")
         {
-            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 90));
+            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
             fallenEnemy.transform.parent = player.transform.parent;
         }
     }

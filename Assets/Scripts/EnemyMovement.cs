@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -12,12 +14,21 @@ public class EnemyMovement : MonoBehaviour
     GameObject player;
     [SerializeField] GameObject enemyFallen;
 
+    EnemySpriteBehaviour spriteBehaviour;
+
+    
+
     // on Start
     private void Start()
     {
         enemySpawnPoint = transform.position;
         player = GameObject.Find("Player");
+        spriteBehaviour = GetComponent<EnemySpriteBehaviour>();
+
+        spriteBehaviour.SelectRandomSprite();
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -54,6 +65,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.tag == "Projectile")
         {
             var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 90));
+            fallenEnemy.GetComponent<EnemySpriteBehaviour>().EnemyDead(spriteBehaviour.spriteNumber);
             fallenEnemy.transform.parent = player.transform.parent;
         }
     }

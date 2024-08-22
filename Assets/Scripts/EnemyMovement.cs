@@ -42,6 +42,10 @@ public class EnemyMovement : MonoBehaviour
             {
                 transform.position = (Vector2)(transform.position) + new Vector2(0, (-enemySpeed / 2) * Time.deltaTime);
             }
+            else if(transform.position.y < playerPosition.y)
+            {
+                transform.position = (Vector2)(transform.position) + new Vector2(0, (enemySpeed / 2) * Time.deltaTime);
+            }
 
             if (transform.position.y < -5)
             {

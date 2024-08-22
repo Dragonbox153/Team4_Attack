@@ -64,10 +64,14 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Projectile")
         {
-            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 90));
-            fallenEnemy.GetComponent<EnemySpriteBehaviour>().EnemyDead(spriteBehaviour.spriteNumber);
-            fallenEnemy.transform.parent = player.transform.parent;
+            EnemyDied();
         }
     }
 
+    public void EnemyDied()
+    {
+        var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 90));
+        fallenEnemy.GetComponent<EnemySpriteBehaviour>().EnemyDead(spriteBehaviour.spriteNumber);
+        fallenEnemy.transform.parent = player.transform.parent;
+    }
 }

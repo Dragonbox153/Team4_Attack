@@ -44,14 +44,14 @@ public class PlayerMovement : MonoBehaviour
 
         /////TURNING/////
 
-        if(PlayerGoingLeft)
-        {
-            transform.localScale = Vector3.one;
-        }
-        else
-        {
-            transform.localScale = new Vector3(-1,1,1);
-        }
+        //if(PlayerGoingLeft)
+        //{
+        //    transform.localScale = Vector3.one;
+        //}
+        //else
+        //{
+        //    transform.localScale = new Vector3(-1,1,1);
+        //}
 
         /////TURRET MOVEMENT/////
         if (Input.GetKey(KeyCode.W))

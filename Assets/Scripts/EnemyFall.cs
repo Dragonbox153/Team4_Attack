@@ -30,6 +30,7 @@ public class EnemyFall : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
+            Destroy(collision.gameObject);
             collision.gameObject.GetComponent<EnemyMovement>().EnemyDied();
         }
     }

@@ -1,34 +1,25 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class EnemyMovement : MonoBehaviour
+public class DroneMovement : MonoBehaviour
 {
-    [SerializeField] float enemySpeed = 0.00002f;
+    [SerializeField] float enemySpeed = 0.05f;
     [SerializeField] public float divePoint = 1;
     Vector2 enemySpawnPoint;
     Vector2 playerPosition;
 
     GameObject player;
     [SerializeField] GameObject enemyFallen;
-
-    EnemySpriteBehaviour spriteBehaviour;
-
-    
+    [SerializeField] EnemySpawner spawner;
 
     // on Start
     private void Start()
     {
         enemySpawnPoint = transform.position;
         player = GameObject.Find("Player");
-        spriteBehaviour = GetComponent<EnemySpriteBehaviour>();
-
-        spriteBehaviour.SelectRandomSprite();
     }
-
-    
 
     // Update is called once per frame
     void Update()
@@ -48,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
             }
 
             // dive at player when close enough
-            if (transform.position.x >= playerPosition.x - divePoint && transform.position.x <= playerPosition.x + divePoint)
+            if (transform.position.x >= playerPosition.x - divePoint && transform.position.x <= playerPosition.x + divePoint && transform.position.y > playerPosition.y)
             {
                 transform.position = (Vector2)(transform.position) + new Vector2(0, (-enemySpeed / 2) * Time.deltaTime);
             }
@@ -64,14 +55,16 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Projectile")
         {
-            EnemyDied();
+            Destroy(gameObject);
+            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
+            fallenEnemy.transform.parent = player.transform.parent;
+        }
+        else if (collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
-    public void EnemyDied()
-    {
-        var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 90));
-        fallenEnemy.GetComponent<EnemySpriteBehaviour>().EnemyDead(spriteBehaviour.spriteNumber);
-        fallenEnemy.transform.parent = player.transform.parent;
-    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] int spawnY = 5;
+    [SerializeField] public int spawnY = 5;
     [SerializeField] int spawnX = 11;
     [SerializeField] int spawnPeriod = 6;
     [SerializeField] float time = 6;
@@ -26,11 +26,11 @@ public class EnemySpawner : MonoBehaviour
         {
             int randomY = Random.Range(0,  spawnY);
             int randomX = spawnX;
-            if(Random.Range(0, 2) == 0)
-            {
-<<<<<<< Updated upstream
-                randomX = -spawnX;
-=======
+            int enemyType = Random.Range(0, enemies.Length + 1);
+
+            var enemy = Instantiate(enemies[Random.Range(0, enemies.Length)]);
+
+            switch(enemyType) { 
                 case 0:
                     randomX = FlipX();
                     if (randomX < 0)
@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
                     break;
                 case 1:
                     randomY = Random.Range(GameManager.Instance.CurrentTideLevel + 3, spawnY + 1); // the plus 1 is so that it includes spawnY in the range
-                    if(randomY == spawnY)
+                    if (randomY == spawnY)
                     {
                         randomX = Random.Range(-spawnX, spawnX);
                     }
@@ -50,18 +50,29 @@ public class EnemySpawner : MonoBehaviour
                         randomX = FlipX();
                     }
                     break;
-                 default:
+                default:
                     randomY = spawnY;
                     randomX = Random.Range(-spawnX + 1, spawnX - 1);
                     break;
->>>>>>> Stashed changes
-            }
-            var enemy = Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(randomX, randomY, 0), Quaternion.Euler(0, 0, 0));
+             }
+            enemy.transform.position = new Vector2 (randomX, randomY);
             enemy.transform.SetParent(attackLevel.transform);
 
             time = 0;
         }
 
         time += Time.deltaTime;
+    }
+
+    int FlipX()
+    {
+        if (Random.Range(0, 2) == 0)
+        {
+            return -spawnX;
+        }
+        else
+        {
+            return -spawnX;
+        }
     }
 }

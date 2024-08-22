@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class AirplaneAttack : MonoBehaviour
 {
     [SerializeField] GameObject enemyProjectile;
-    [SerializeField] EnemyMovement movement;
     [SerializeField] float attackTime = 2;
 
     public GameObject player;
@@ -24,7 +23,7 @@ public class EnemyAttack : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= attackTime && player != null && transform.position.x < player.transform.position.x + movement.divePoint && transform.position.x > player.transform.position.x - movement.divePoint)
+        if (time >= attackTime && player != null)
         {
             var projectile = Instantiate(enemyProjectile, transform.position, Quaternion.Euler(0, 0, 0));
             projectile.transform.SetParent(attackLevel.transform);

@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class AirplaneMovement : MonoBehaviour
 {
-    [SerializeField] float enemySpeed = 0.00002f;
-    [SerializeField] public float divePoint = 1;
+    [SerializeField] float enemySpeed = 0.02f;
     Vector2 enemySpawnPoint;
-    Vector2 playerPosition;
 
     GameObject player;
     [SerializeField] GameObject enemyFallen;
@@ -25,25 +23,18 @@ public class EnemyMovement : MonoBehaviour
     {
         if (player != null)
         {
-            playerPosition = player.transform.position;
 
             //move towards player
-            if (transform.position.x > playerPosition.x)
+            if (enemySpawnPoint.x < 0)
             {
-                transform.position = (Vector2)(transform.position) + new Vector2(-enemySpeed * Time.deltaTime, 0);
+            transform.position = (Vector2)(transform.position) + new Vector2(enemySpeed * Time.deltaTime, 0);
             }
-            else if (transform.position.x < playerPosition.x)
+            else
             {
-                transform.position = (Vector2)(transform.position) + new Vector2(enemySpeed * Time.deltaTime, 0);
-            }
-
-            // dive at player when close enough
-            if (transform.position.x >= playerPosition.x - divePoint && transform.position.x <= playerPosition.x + divePoint)
-            {
-                transform.position = (Vector2)(transform.position) + new Vector2(0, (-enemySpeed / 2) * Time.deltaTime);
+                transform.position = (Vector2)(transform.position) - new Vector2(enemySpeed * Time.deltaTime, 0);
             }
 
-            if (transform.position.y < -5)
+            if (transform.position.x > spawner.spawnX || transform.position.x < -spawner.spawnX)
             {
                 Destroy(gameObject);
             }

@@ -45,14 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a7e1805148b884caa388a5a9465dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnY: 6
+  spawnY: 5
   spawnX: 10
-  spawnPeriod: 6
-  time: 6
+  spawnPeriod: 4
   enemies:
   - {fileID: 7823893143214668409, guid: 0da0d2cafed717646836f28edcaa892a, type: 3}
-  - {fileID: 1509097016881279067, guid: cb3676103fcad864ea3ecc5624f4b68e, type: 3}
-  - {fileID: 8291539808208243608, guid: f6d09a1a12d17bb4783924f054145725, type: 3}
+  - {fileID: 3043811680671046909, guid: f23df2522ac1b774b971ebf3a4b4066d, type: 3}
+  - {fileID: 8448179651761642804, guid: a99b55da458564e40a3e5c16500caf1c, type: 3}
 --- !u!1001 &6714720337524481112
 PrefabInstance:
   m_ObjectHideFlags: 0

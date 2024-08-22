@@ -11,7 +11,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float time = 6;
 
     public GameObject[] enemies;
+    public List<GameObject> liveEnemies;
     GameObject attackLevel;
+
+    public static EnemySpawner instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +35,8 @@ public class EnemySpawner : MonoBehaviour
             float randomY = Random.Range(0,  spawnY);
             float randomX = spawnX;
             int enemyType = Random.Range(0, enemies.Length + 1);
-
-            var enemy = Instantiate(enemies[Random.Range(0, enemyType)]);
+            GameObject enemy = Instantiate(enemies[Random.Range(0, enemyType)]);
+           liveEnemies.Add(enemy);
 
             switch(enemyType) { 
                 case 0:
@@ -40,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
                     randomY = Random.Range(GameManager.Instance.CurrentTideLevel, spawnY);
                     break;
                 case 1:
-                    randomY = Random.Range(GameManager.Instance.CurrentTideLevel + 3, spawnY + 1); // the plus 1 is so that it includes spawnY in the range
+                    randomY = Random.Range(3, spawnY + 1); // the plus 1 is so that it includes spawnY in the range
                     if (randomY == spawnY)
                     {
                         randomX = Random.Range(-spawnX, spawnX);

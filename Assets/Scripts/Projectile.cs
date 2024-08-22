@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            EnemySpawner.instance.liveEnemies.Remove(collision.gameObject);
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }

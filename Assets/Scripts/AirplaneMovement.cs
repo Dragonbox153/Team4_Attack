@@ -36,6 +36,7 @@ public class AirplaneMovement : MonoBehaviour
 
             if (transform.position.x > spawner.spawnX || transform.position.x < -spawner.spawnX)
             {
+                EnemySpawner.instance.liveEnemies.Remove(this.gameObject);
                 Destroy(gameObject);
             }
         }

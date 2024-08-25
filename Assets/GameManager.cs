@@ -91,12 +91,12 @@ public class GameManager : MonoBehaviour
                 tidechangeElapsedTime += Time.deltaTime;
                 yield return null;
             }
-        }
 
-        movingUp = false;
-        movingDown = false;
-        Player.transform.position = new Vector3(Player.transform.position.x, B.y, 0);
-        CurrentTideLevel = B.y;
+            movingUp = false;
+            movingDown = false;
+            Player.transform.position = new Vector3(Player.transform.position.x, B.y, 0);
+            CurrentTideLevel = B.y;
+        }
     }
 
     

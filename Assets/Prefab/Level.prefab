@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6923955055974340502}
   - component: {fileID: 4998975219068446583}
+  - component: {fileID: 5436790365540357902}
   - component: {fileID: 8393775249059918308}
   m_Layer: 0
   m_Name: Level
@@ -142,6 +143,24 @@ MonoBehaviour:
   - {fileID: 3043811680671046909, guid: f23df2522ac1b774b971ebf3a4b4066d, type: 3}
   - {fileID: 8448179651761642804, guid: a99b55da458564e40a3e5c16500caf1c, type: 3}
   liveEnemies: []
+--- !u!114 &5436790365540357902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527624765618842558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa77331eb1235b74cbdf4dcad54aa332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnY: -5
+  spawnX: 11
+  spawnPeriod: 6
+  time: 6
+  waterEnemies:
+  - {fileID: 7940803838051645753, guid: 972ca43e12b04ff459cf3e94f4df816c, type: 3}
 --- !u!114 &8393775249059918308
 MonoBehaviour:
   m_ObjectHideFlags: 0

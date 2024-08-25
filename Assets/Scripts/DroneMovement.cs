@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class DroneMovement : MonoBehaviour
 {
@@ -44,13 +45,24 @@ public class DroneMovement : MonoBehaviour
                 transform.position = (Vector2)(transform.position) + new Vector2(0, (-enemySpeed / 2) * Time.deltaTime);
             }
 
-            if (transform.position.y < -5)
+            if (transform.position.y < -5 || transform.position.x > spawner.spawnX || transform.position.x < -spawner.spawnX)
             {
                 EnemySpawner.instance.liveEnemies.Remove(this.gameObject);
                 Destroy(gameObject);
             }
+
+            // if the water rises, rise an amount based on how low Drone is
+            if (GameManager.Instance.movingUp == true)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y + ((spawner.spawnY - transform.position.y + 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
+            }
+            else if (GameManager.Instance.movingDown == true)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - ((spawner.spawnY - transform.position.y + 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
+            }
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

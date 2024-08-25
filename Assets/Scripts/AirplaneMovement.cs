@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AirplaneMovement : MonoBehaviour
 {
@@ -38,6 +40,17 @@ public class AirplaneMovement : MonoBehaviour
             {
                 EnemySpawner.instance.liveEnemies.Remove(this.gameObject);
                 Destroy(gameObject);
+            }
+
+
+            // if the water rises, rise an amount based on how low plane is
+            if (GameManager.Instance.movingUp == true)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y + ((spawner.spawnY - transform.position.y + 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
+            }
+            else if(GameManager.Instance.movingDown == true)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - ((spawner.spawnY - transform.position.y) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
             }
         }
     }

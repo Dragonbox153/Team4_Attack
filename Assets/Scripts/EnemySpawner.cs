@@ -48,10 +48,10 @@ public class EnemySpawner : MonoBehaviour
                     randomY = Random.Range(GameManager.Instance.CurrentTideLevel, spawnY);
                     break;
                 case 1:
-                    randomY = Random.Range(3, spawnY + 1); // the plus 1 is so that it includes spawnY in the range
+                    randomY = Random.Range(GameManager.Instance.CurrentTideLevel, spawnY + 1); // the plus 1 is so that it includes spawnY in the range
                     if (randomY == spawnY)
                     {
-                        randomX = Random.Range(-spawnX, spawnX);
+                        randomX = Random.Range(-spawnX + 2, spawnX - 2);
                     }
                     else
                     {
@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
                     break;
                 default:
                     randomY = spawnY;
-                    randomX = Random.Range(-spawnX + 1, spawnX - 1);
+                    randomX = Random.Range(-spawnX + 2, spawnX - 2);
                     break;
              }
             enemy.transform.position = new Vector2 (randomX, randomY);
@@ -80,7 +80,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            return -spawnX;
+            return spawnX;
         }
     }
 }

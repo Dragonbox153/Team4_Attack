@@ -24,8 +24,10 @@ public class GameManager : MonoBehaviour
     //what the current tide level is
     public float CurrentTideLevel = -2.5f;
 
+    public bool movingUp = false;
+    public bool movingDown = false;
 
-    Vector3 BufferPosition = Vector3.zero; 
+    public Vector3 BufferPosition = Vector3.zero; 
 
     //Refference to all the tide type
     public Vector3 HighTide = new Vector3(0, 2.5f, 0);
@@ -49,21 +51,25 @@ public class GameManager : MonoBehaviour
 
         if(Mathf.Ceil(DayNightCyclePNG_angle) == 90)
         {
+            movingUp = true;
             StartCoroutine(ChangeTide(LowTide, MidTide));
         }
 
         if (Mathf.Ceil(DayNightCyclePNG_angle) == 180)
         {
+            movingUp = true;
             StartCoroutine(ChangeTide(MidTide, HighTide));
         }
 
         if (Mathf.Ceil(DayNightCyclePNG_angle) == 270)
         {
+            movingDown = true;
             StartCoroutine(ChangeTide(HighTide, MidTide));
         }
 
         if (Mathf.Ceil(DayNightCyclePNG_angle) == 360)
         {
+            movingDown = true;
             DayNightCyclePNG_angle = 0;
             StartCoroutine(ChangeTide(MidTide, LowTide));
         }
@@ -74,17 +80,21 @@ public class GameManager : MonoBehaviour
     IEnumerator ChangeTide(Vector3 A, Vector3 B)
     {
         float tidechangeElapsedTime = 0;
-
-        while (tidechangeElapsedTime < TideChangeDuration)
+        if(Player != null)
         {
-            float t = tidechangeElapsedTime / TideChangeDuration;
-            BufferPosition = Vector3.Lerp(A, B, t);
-            Player.transform.position = new Vector3(Player.transform.position.x, BufferPosition.y, 0);
-            CurrentTideLevel = Player.transform.position.y;
-            tidechangeElapsedTime += Time.deltaTime;
-            yield return null;
+            while (tidechangeElapsedTime < TideChangeDuration)
+            {
+                float t = tidechangeElapsedTime / TideChangeDuration;
+                BufferPosition = Vector3.Lerp(A, B, t);
+                Player.transform.position = new Vector3(Player.transform.position.x, BufferPosition.y, 0);
+                CurrentTideLevel = Player.transform.position.y;
+                tidechangeElapsedTime += Time.deltaTime;
+                yield return null;
+            }
         }
 
+        movingUp = false;
+        movingDown = false;
         Player.transform.position = new Vector3(Player.transform.position.x, B.y, 0);
         CurrentTideLevel = B.y;
     }

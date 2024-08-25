@@ -20,7 +20,7 @@ public class UFOMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y <= 0)
+        if(transform.position.y <= GameManager.Instance.CurrentTideLevel)
         {
             goingDown = false;
         }

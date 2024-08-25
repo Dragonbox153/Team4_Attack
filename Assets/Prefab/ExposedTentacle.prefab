@@ -350,6 +350,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae7ba81e639bb543b9d230ef77150cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 2
   spawner: {fileID: 5436790365540357902, guid: 7cf61d273253f1145b6bd071a27d1b38, type: 3}
-  enemyFallen: {fileID: 3836123036760080615, guid: 497918bb7b5ab7d479e537fc693f8616, type: 3}

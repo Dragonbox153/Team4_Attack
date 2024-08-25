@@ -80,18 +80,17 @@ public class GameManager : MonoBehaviour
     IEnumerator ChangeTide(Vector3 A, Vector3 B)
     {
         float tidechangeElapsedTime = 0;
-        if(Player != null)
+        while (tidechangeElapsedTime < TideChangeDuration && Player != null)
         {
-            while (tidechangeElapsedTime < TideChangeDuration)
-            {
-                float t = tidechangeElapsedTime / TideChangeDuration;
-                BufferPosition = Vector3.Lerp(A, B, t);
-                Player.transform.position = new Vector3(Player.transform.position.x, BufferPosition.y, 0);
-                CurrentTideLevel = Player.transform.position.y;
-                tidechangeElapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
+            float t = tidechangeElapsedTime / TideChangeDuration;
+            BufferPosition = Vector3.Lerp(A, B, t);
+            Player.transform.position = new Vector3(Player.transform.position.x, BufferPosition.y, 0);
+            CurrentTideLevel = Player.transform.position.y;
+            tidechangeElapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        if (Player != null)
+        {
             movingUp = false;
             movingDown = false;
             Player.transform.position = new Vector3(Player.transform.position.x, B.y, 0);

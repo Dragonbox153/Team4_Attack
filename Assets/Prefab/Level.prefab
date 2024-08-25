@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnY: 4
   spawnX: 11
-  spawnPeriod: 3
+  spawnPeriod: 6
   time: 6
   enemies:
   - {fileID: 7823893143214668409, guid: 0da0d2cafed717646836f28edcaa892a, type: 3}

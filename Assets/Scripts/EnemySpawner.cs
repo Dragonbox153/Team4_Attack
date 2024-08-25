@@ -45,10 +45,10 @@ public class EnemySpawner : MonoBehaviour
                     {
                         enemy.GetComponent<SpriteRenderer>().flipX = true;
                     }
-                    randomY = Random.Range(GameManager.Instance.CurrentTideLevel, spawnY);
+                    randomY = Random.Range(GameManager.Instance.CurrentTideLevel + 1, spawnY);
                     break;
                 case 1:
-                    randomY = Random.Range(GameManager.Instance.CurrentTideLevel, spawnY + 1); // the plus 1 is so that it includes spawnY in the range
+                    randomY = Random.Range(GameManager.Instance.CurrentTideLevel + 1, spawnY + 1); // the plus 1 is so that it includes spawnY in the range
                     if (randomY == spawnY)
                     {
                         randomX = Random.Range(-spawnX + 3, spawnX - 3);

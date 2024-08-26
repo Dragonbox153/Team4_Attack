@@ -27,11 +27,10 @@ public class EnemyFall : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-
-        if (collision.gameObject.tag == "Enemy")
+        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Projectile")
         {
             Destroy(collision.gameObject);
-            //collision.gameObject.GetComponent<EnemyMovement>().EnemyDied();
+            Destroy(gameObject);
         }
     }
 }

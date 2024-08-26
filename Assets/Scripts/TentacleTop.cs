@@ -19,6 +19,7 @@ public class TentacleTop : MonoBehaviour
     {
         if (collision.gameObject.tag == "Projectile")
         {
+            Destroy(collision.gameObject);
             Destroy(gameObject);
             var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
             fallenEnemy.transform.parent = player.transform.parent;

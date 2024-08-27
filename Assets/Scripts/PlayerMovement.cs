@@ -65,12 +65,12 @@ public class PlayerMovement : MonoBehaviour
         //}
 
         /////TURRET MOVEMENT/////
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             TurretAngle -= TurretAngleChangeDelta * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             TurretAngle += TurretAngleChangeDelta * Time.deltaTime;
         }

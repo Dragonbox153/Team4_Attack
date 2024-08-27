@@ -14,4 +14,12 @@ public class Menu : MonoBehaviour
         level.transform.position = Vector2.zero;
         menu.SetActive(false);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnStart();
+        }
+    }
 }

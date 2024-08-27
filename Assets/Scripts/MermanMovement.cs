@@ -7,7 +7,7 @@ public class MermanMovement : MonoBehaviour
 {
     [SerializeField] float enemySpeed = 2f;
     Vector2 enemySpawnPoint;
-    Vector2 enemyTargetPoint;
+    [SerializeField]Vector3 enemyTargetPoint = Vector3.zero;
 
     GameObject player;
     [SerializeField] GameObject enemyFallen;
@@ -22,11 +22,11 @@ public class MermanMovement : MonoBehaviour
         {
             float randomX = Random.Range(-spawner.spawnX, spawner.spawnX);
             float randomY = Random.Range(spawner.spawnY, GameManager.Instance.CurrentTideLevel);
-            enemyTargetPoint = new Vector2(randomX, randomY);
+            enemyTargetPoint = new Vector3(randomX, randomY, transform.position.z);
         }
         else
         {
-            enemyTargetPoint = new Vector2 (0, 0);
+            enemyTargetPoint = new Vector3 (0, 0, 0);
         }
     }
 
@@ -37,19 +37,30 @@ public class MermanMovement : MonoBehaviour
         {
 
             //move towards Target
-            if ((Vector2)transform.position != enemyTargetPoint)
+            if (transform.position != enemyTargetPoint)
             {
-                Vector2.MoveTowards((Vector2)transform.position, enemyTargetPoint, enemySpeed);
+                transform.position = transform.position + new Vector3((enemyTargetPoint.x - transform.position.x) * enemySpeed * Time.deltaTime, (enemyTargetPoint.y - transform.position.y) * enemySpeed * Time.deltaTime, 0);
             }
-            // if the water rises, rise an amount based on how low plane is
+
+            // if the water rises, rise an amount based on how low merman is
             if (GameManager.Instance.movingUp == true)
             {
-                enemyTargetPoint = new Vector2(enemyTargetPoint.x, enemyTargetPoint.y + ((spawner.spawnY - transform.position.y - 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime);
+                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y + ((spawner.spawnY - transform.position.y - 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, 0);
             }
             else if (GameManager.Instance.movingDown == true)
             {
-                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y - ((spawner.spawnY - transform.position.y) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime);
+                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y - ((spawner.spawnY - transform.position.y) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, 0);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Projectile")
+        {
+            Destroy(gameObject);
+            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
+            fallenEnemy.transform.parent = player.transform.parent;
         }
     }
 }

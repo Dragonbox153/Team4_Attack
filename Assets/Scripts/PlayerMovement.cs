@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerGoingLeft = true;
 
-            if (transform.position.x < LeftBoundary) return;
+            if (transform.position.x < LeftBoundary) ScreenWrap(RightBoundary);
             transform.Translate(new Vector3(-_Speed * Time.deltaTime, 0, 0));
         }
 
@@ -49,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerGoingLeft=false;
 
-            if (transform.position.x > RightBoundary) return;
+            if (transform.position.x > RightBoundary) ScreenWrap(LeftBoundary);
             transform.Translate(new Vector3(_Speed * Time.deltaTime, 0, 0));
         }
 
@@ -76,5 +77,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         TurretRotationPivot.transform.localEulerAngles = new Vector3(0, 0, TurretAngle);
+    }
+
+    private void ScreenWrap(float BoundaryPoint)
+    {
+        transform.position = new Vector3(BoundaryPoint, transform.position.y, 0);
     }
 }

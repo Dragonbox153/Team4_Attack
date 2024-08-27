@@ -8,9 +8,6 @@ TextureImporter:
   - first:
       213: 8407378292743192830
     second: Enemy_3_Normal_1
-  - first:
-      213: 2154151714231393427
-    second: Enemy_3_Normal_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 640
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -135,9 +132,9 @@ TextureImporter:
       name: Enemy_3_Normal_0
       rect:
         serializedVersion: 2
-        x: 119
-        y: 279
-        width: 132
+        x: 589
+        y: 939
+        width: 302
         height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -156,10 +153,10 @@ TextureImporter:
       name: Enemy_3_Normal_1
       rect:
         serializedVersion: 2
-        x: 229
-        y: 249
-        width: 172
-        height: 142
+        x: 59
+        y: 529
+        width: 1372
+        height: 402
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,27 +166,6 @@ TextureImporter:
       bones: []
       spriteID: ef0c94753020da470800000000000000
       internalID: 8407378292743192830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_3_Normal_2
-      rect:
-        serializedVersion: 2
-        x: 379
-        y: 279
-        width: 132
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 39c9f07229515ed10800000000000000
-      internalID: 2154151714231393427
       vertices: []
       indices: 
       edges: []
@@ -207,7 +183,6 @@ TextureImporter:
     nameFileIdTable:
       Enemy_3_Normal_0: 1367590076153604498
       Enemy_3_Normal_1: 8407378292743192830
-      Enemy_3_Normal_2: 2154151714231393427
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

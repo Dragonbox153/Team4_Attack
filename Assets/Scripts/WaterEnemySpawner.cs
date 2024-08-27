@@ -26,7 +26,7 @@ public class WaterEnemySpawner : MonoBehaviour
             float randomX = spawnX;
             float randomY = spawnY;
 
-            int enemyType = Random.Range(0, waterEnemies.Length);
+            int enemyType = Random.Range(0, waterEnemies.Length + 1);
             GameObject enemy = Instantiate(waterEnemies[Random.Range(0, enemyType)]);
             EnemySpawner.instance.liveEnemies.Add(enemy);
 

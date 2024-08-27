@@ -25,7 +25,8 @@ public class AirplaneAttack : MonoBehaviour
 
         if (time >= attackTime && player != null)
         {
-            var projectile = Instantiate(enemyProjectile, transform.position, Quaternion.Euler(0, 0, 0));
+            float attackAngle = (180 / Mathf.PI) * Mathf.Atan((transform.position.y - player.transform.position.y) / (transform.position.x - player.transform.position.x));
+            var projectile = Instantiate(enemyProjectile, transform.position, Quaternion.Euler(0, 0, attackAngle));
             projectile.transform.SetParent(attackLevel.transform);
 
             time = 0;

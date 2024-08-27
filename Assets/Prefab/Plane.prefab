@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4964096e81eaee44fa11eb9392e605a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyProjectile: {fileID: 4908127174265152965, guid: c011f35416d82194f8371e01dec488a1, type: 3}
+  enemyProjectile: {fileID: 8194067343143178019, guid: fd7bb24dd550ac74e9a6fbe22fcb12c8, type: 3}
   attackTime: 2
   player: {fileID: 0}
 --- !u!50 &2611960987636007643

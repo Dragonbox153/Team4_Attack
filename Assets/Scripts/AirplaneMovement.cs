@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class AirplaneMovement : MonoBehaviour
 {
-    [SerializeField] float enemySpeed = 0.02f;
+    [SerializeField] float enemySpeed = 2f;
     Vector2 enemySpawnPoint;
 
     GameObject player;

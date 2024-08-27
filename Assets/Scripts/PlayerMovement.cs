@@ -22,15 +22,16 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void Start()
-    {
         rightEdgeWorldPositionX = Camera.main.ViewportToWorldPoint(new Vector3(1, 0.5f, Camera.main.nearClipPlane)).x;
         leftEdgeWorldPositionX = Camera.main.ViewportToWorldPoint(new Vector3(0, 0.5f, Camera.main.nearClipPlane)).x;
 
         LeftBoundary = leftEdgeWorldPositionX + 0.5f;
         RightBoundary = rightEdgeWorldPositionX - 0.5f;
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void Update()

@@ -5,9 +5,9 @@ using UnityEngine;
 public class WaterEnemySpawner : MonoBehaviour
 {
     [SerializeField] public float spawnY = -5;
-    [SerializeField] public float spawnX = 11;
+    public float spawnX;
     [SerializeField] int spawnPeriod = 6;
-    [SerializeField] float time = 6;
+    [SerializeField] float time = 0;
 
     [SerializeField] GameObject[] waterEnemies;
     GameObject attackLevel;
@@ -15,6 +15,7 @@ public class WaterEnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawnX = PlayerMovement.Instance.rightEdgeWorldPositionX;
         attackLevel = GameObject.FindWithTag("Level");
     }
 

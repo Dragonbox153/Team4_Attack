@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: 1318500284242346395
     second: Enemy_1_Normal_0
-  - first:
-      213: -5564835771687799769
-    second: Enemy_1_Normal_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 1280
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,10 +129,10 @@ TextureImporter:
       name: Enemy_1_Normal_0
       rect:
         serializedVersion: 2
-        x: 109
-        y: 259
-        width: 352
-        height: 132
+        x: 59
+        y: 549
+        width: 1382
+        height: 622
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,27 +142,6 @@ TextureImporter:
       bones: []
       spriteID: b914486d5014c4210800000000000000
       internalID: 1318500284242346395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_1_Normal_1
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 289
-        width: 52
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7247923795bb5c2b0800000000000000
-      internalID: -5564835771687799769
       vertices: []
       indices: 
       edges: []
@@ -182,7 +158,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Enemy_1_Normal_0: 1318500284242346395
-      Enemy_1_Normal_1: -5564835771687799769
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

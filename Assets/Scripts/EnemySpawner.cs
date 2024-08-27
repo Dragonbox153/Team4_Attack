@@ -11,7 +11,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float time = 0;
 
     public GameObject[] enemies;
-    public List<GameObject> liveEnemies;
     GameObject attackLevel;
 
     public static EnemySpawner instance;
@@ -35,9 +34,8 @@ public class EnemySpawner : MonoBehaviour
         {
             float randomY = 0;
             float randomX = spawnX;
-            int enemyType = Random.Range(0, enemies.Length + 1);
-            GameObject enemy = Instantiate(enemies[Random.Range(0, enemyType)]);
-           liveEnemies.Add(enemy);
+            int enemyType = Random.Range(0, enemies.Length);
+            GameObject enemy = Instantiate(enemies[enemyType]);
 
             switch(enemyType) { 
                 case 0:
@@ -46,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
                     {
                         enemy.GetComponent<SpriteRenderer>().flipX = true;
                     }
-                    randomY = Random.Range(GameManager.Instance.CurrentTideLevel + 1, spawnY);
+                    randomY = Random.Range(GameManager.Instance.CurrentTideLevel + 1, spawnY + 1);
                     break;
                 case 1:
                     randomY = Random.Range(GameManager.Instance.CurrentTideLevel + 1, spawnY + 1); // the plus 1 is so that it includes spawnY in the range

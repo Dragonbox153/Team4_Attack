@@ -144,7 +144,6 @@ MonoBehaviour:
   - {fileID: 7823893143214668409, guid: 0da0d2cafed717646836f28edcaa892a, type: 3}
   - {fileID: 3043811680671046909, guid: f23df2522ac1b774b971ebf3a4b4066d, type: 3}
   - {fileID: 8448179651761642804, guid: a99b55da458564e40a3e5c16500caf1c, type: 3}
-  liveEnemies: []
 --- !u!114 &5436790365540357902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,10 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa77331eb1235b74cbdf4dcad54aa332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnY: -7
+  spawnY: -6
   spawnX: 0
   spawnPeriod: 6
-  time: 0
+  time: 3
   waterEnemies:
   - {fileID: 7940803838051645753, guid: 972ca43e12b04ff459cf3e94f4df816c, type: 3}
   - {fileID: 5954531896137902485, guid: 0789021f6a2eb1e44bb98f5925720668, type: 3}
@@ -272,6 +271,10 @@ PrefabInstance:
     - target: {fileID: 2987770509726328867, guid: c7dede376041edf4b9c0ae5e20ffd1ed, type: 3}
       propertyPath: m_Name
       value: WaterBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987770509726328867, guid: c7dede376041edf4b9c0ae5e20ffd1ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8906646853616533086, guid: c7dede376041edf4b9c0ae5e20ffd1ed, type: 3}
       propertyPath: m_LocalPosition.x

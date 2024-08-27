@@ -10,7 +10,7 @@ public class AirplaneAttack : MonoBehaviour
 
     public GameObject player;
     GameObject attackLevel;
-    float time = 2;
+    float time = 1;
     // Start is called before the first frame update
     void Start()
     {

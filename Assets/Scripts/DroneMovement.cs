@@ -47,7 +47,6 @@ public class DroneMovement : MonoBehaviour
 
             if (transform.position.y < -5 || transform.position.x > spawner.spawnX || transform.position.x < -spawner.spawnX)
             {
-                EnemySpawner.instance.liveEnemies.Remove(this.gameObject);
                 Destroy(gameObject);
             }
 

@@ -73,9 +73,8 @@ public class DroneMovement : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            PlayerMovement.Instance.PlayerHit();
             Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

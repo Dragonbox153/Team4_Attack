@@ -37,9 +37,8 @@ public class EnemyProjectile : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            PlayerMovement.Instance.PlayerHit();
             Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }    
     }
 }

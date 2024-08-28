@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9cc54fbc1cd7c844a959972bfdc51723, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9cc54fbc1cd7c844a959972bfdc51723, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,7 +199,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f6b91a49f503d1d45abff25e6681421e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -285,7 +285,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 8
   TurretAngleChangeDelta: 180
+  rightEdgeWorldPositionX: 0
+  leftEdgeWorldPositionX: 0
   TurretRotationPivot: {fileID: 7877301253246267712}
+  LivesLeft: 4
+  _barrelSpriteRenderer: {fileID: 3187215566071102819}
 --- !u!50 &3834566249267606085
 Rigidbody2D:
   serializedVersion: 4

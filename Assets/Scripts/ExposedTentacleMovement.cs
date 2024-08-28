@@ -38,8 +38,8 @@ public class ExposedTentacleMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            PlayerMovement.Instance.PlayerHit();
+            Destroy(gameObject);
         }
     }
 }

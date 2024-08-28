@@ -47,5 +47,10 @@ public class UFOMovement : MonoBehaviour
             var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
             fallenEnemy.transform.parent = player.transform.parent;
         }
+        else if (collision.gameObject.tag == "Player")
+        {
+            PlayerMovement.Instance.PlayerHit();
+            Destroy(gameObject);
+        }
     }
 }

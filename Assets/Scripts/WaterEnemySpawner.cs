@@ -41,6 +41,9 @@ public class WaterEnemySpawner : MonoBehaviour
                 randomY = Random.Range(spawnY, GameManager.Instance.CurrentTideLevel);
             }
 
+            if(randomX < 0)
+                enemy.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+
             enemy.transform.position = new Vector2(randomX, randomY);
             enemy.transform.SetParent(attackLevel.transform);
 

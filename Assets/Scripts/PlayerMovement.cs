@@ -2,13 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float _Speed = 10f;
     float LeftBoundary, RightBoundary;
-
-    bool PlayerGoingLeft;
 
     public float TurretAngleChangeDelta = 5f;
     float TurretAngle = 0f;
@@ -17,7 +16,11 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject TurretRotationPivot;
 
+    public int LivesLeft = 4;
 
+    BoxCollider2D _collider;
+    SpriteRenderer _spriteRenderer;
+    [SerializeField]SpriteRenderer _barrelSpriteRenderer;
 
     public static PlayerMovement Instance;
     private void Awake()
@@ -28,11 +31,9 @@ public class PlayerMovement : MonoBehaviour
 
         LeftBoundary = leftEdgeWorldPositionX + 0.5f;
         RightBoundary = rightEdgeWorldPositionX - 0.5f;
-    }
 
-    private void Start()
-    {
-        
+        _collider = GetComponent<BoxCollider2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -40,16 +41,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            PlayerGoingLeft = true;
-
             if (transform.position.x < LeftBoundary) ScreenWrap(RightBoundary);
             transform.Translate(new Vector3(-_Speed * Time.deltaTime, 0, 0));
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            PlayerGoingLeft=false;
-
             if (transform.position.x > RightBoundary) ScreenWrap(LeftBoundary);
             transform.Translate(new Vector3(_Speed * Time.deltaTime, 0, 0));
         }
@@ -66,12 +63,12 @@ public class PlayerMovement : MonoBehaviour
         //}
 
         /////TURRET MOVEMENT/////
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.W))
         {
             TurretAngle -= TurretAngleChangeDelta * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.S))
         {
             TurretAngle += TurretAngleChangeDelta * Time.deltaTime;
         }
@@ -82,5 +79,57 @@ public class PlayerMovement : MonoBehaviour
     private void ScreenWrap(float BoundaryPoint)
     {
         transform.position = new Vector3(BoundaryPoint, transform.position.y, 0);
+    }
+
+    public void PlayerHit()
+    {
+        LivesLeft--;
+
+        _collider.enabled = false;
+        StartCoroutine(TurnOnCollider());
+        BlinkRoutine = StartCoroutine(BlinkPlayer());
+
+        if (LivesLeft == 0)
+        {
+            GameOver();
+        }
+        else
+        { ScoreBoard.Inst.LowerHealth(LivesLeft - 1); }
+    }
+
+    private void GameOver()
+    {
+        //See if player made highscore
+        //if they did player pref it
+
+        ScoreBoard.Inst.CheckIfNewHiScore();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator TurnOnCollider()
+    {
+        Debug.Log("Collider Turned Off");
+        yield return new WaitForSeconds(2.5f);
+        _collider.enabled = true;
+        StopCoroutine(BlinkRoutine);
+        Debug.Log("Collider Turned On");
+    }
+
+    Coroutine BlinkRoutine;
+    IEnumerator BlinkPlayer()
+    {
+        while (true)
+        {
+            _spriteRenderer.material.color = new Color(1, 1, 1, 0.5f);
+            _barrelSpriteRenderer.material.color = new Color(1, 1, 1, 0.35f);
+            
+            yield return new WaitForSecondsRealtime(0.33f);
+            
+            _spriteRenderer.material.color = new Color(1, 1, 1, 1f);
+            _barrelSpriteRenderer.material.color = new Color(1, 1, 1, 1f);
+            
+            yield return new WaitForSecondsRealtime(0.33f);
+        }
     }
 }

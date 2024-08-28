@@ -25,12 +25,6 @@ public class ExposedTentacleMovement : MonoBehaviour
             {
                 transform.position = (Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime;
             }
-
-            // if the water lowers, lower an amount based on how low Tentacle is
-            if (GameManager.Instance.movingDown == true)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y + ((spawner.spawnY - transform.position.y + 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
-            }
         }
     }
 

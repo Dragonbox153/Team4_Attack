@@ -21,7 +21,7 @@ public class MermanMovement : MonoBehaviour
         if (GameManager.Instance != null) 
         {
             float randomX = Random.Range(-spawner.spawnX, spawner.spawnX);
-            float randomY = Random.Range(spawner.spawnY + 1, GameManager.Instance.CurrentTideLevel - 0.5f);
+            float randomY = Random.Range(spawner.spawnY + 1.5f, GameManager.Instance.CurrentTideLevel - 0.5f);
             enemyTargetPoint = new Vector3(randomX, randomY, transform.position.z);
         }
         else
@@ -37,19 +37,23 @@ public class MermanMovement : MonoBehaviour
         {
 
             //move towards Target
-            if (transform.position != enemyTargetPoint)
+            if (Vector2.Distance((Vector2)transform.position, (Vector2)enemyTargetPoint) > 1)
             {
-                transform.position = transform.position + new Vector3((enemyTargetPoint.x - transform.position.x) * enemySpeed * Time.deltaTime, (enemyTargetPoint.y - transform.position.y) * enemySpeed * Time.deltaTime, 0);
+                transform.position = transform.position + new Vector3((enemyTargetPoint.x - transform.position.x) * enemySpeed * Time.deltaTime, (enemyTargetPoint.y - transform.position.y) * Time.deltaTime, 0);
+            }
+            else 
+            { 
+                enemySpeed = 4;
             }
 
             // if the water rises, rise an amount based on how low merman is
             if (GameManager.Instance.movingUp == true)
             {
-                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y + ((spawner.spawnY - transform.position.y) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, 0);
+                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y + ((spawner.spawnY - enemyTargetPoint.y + 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, enemyTargetPoint.z);
             }
             else if (GameManager.Instance.movingDown == true)
             {
-                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y - ((spawner.spawnY - transform.position.y - 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, 0);
+                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y - ((spawner.spawnY - enemyTargetPoint.y - 2) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, enemyTargetPoint.z);
             }
         }
     }

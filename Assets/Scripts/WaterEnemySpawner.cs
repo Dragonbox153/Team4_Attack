@@ -38,7 +38,7 @@ public class WaterEnemySpawner : MonoBehaviour
             else
             {
                 randomX = FlipX();
-                randomY = Random.Range(spawnY, GameManager.Instance.CurrentTideLevel);
+                randomY = Random.Range(spawnY, GameManager.Instance.CurrentTideLevel - 1);
             }
 
             if(randomX < 0)

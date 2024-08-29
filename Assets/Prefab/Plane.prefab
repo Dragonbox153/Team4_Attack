@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyProjectile: {fileID: 8194067343143178019, guid: fd7bb24dd550ac74e9a6fbe22fcb12c8, type: 3}
   attackTime: 2
+  extraAngle: 90
   player: {fileID: 0}
 --- !u!50 &2611960987636007643
 Rigidbody2D:

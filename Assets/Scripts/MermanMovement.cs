@@ -53,6 +53,7 @@ public class MermanMovement : MonoBehaviour
             }
             else if (GameManager.Instance.movingDown == true)
             {
+                enemySpeed = 4;
                 enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y - ((spawner.spawnY - enemyTargetPoint.y - 2) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, enemyTargetPoint.z);
             }
         }

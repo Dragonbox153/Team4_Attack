@@ -7,6 +7,7 @@ public class AirplaneAttack : MonoBehaviour
 {
     [SerializeField] GameObject enemyProjectile;
     [SerializeField] float attackTime = 2;
+    [SerializeField] float extraAngle;
 
     public GameObject player;
     GameObject attackLevel;
@@ -28,7 +29,7 @@ public class AirplaneAttack : MonoBehaviour
             float attackAngle = (180 / Mathf.PI) * Mathf.Atan((transform.position.y - player.transform.position.y) / (transform.position.x - player.transform.position.x));
             if (player.transform.position.x > transform.position.x) 
             { 
-                attackAngle += 180;
+                attackAngle += extraAngle;
             }
             var projectile = Instantiate(enemyProjectile, transform.position, Quaternion.Euler(0, 0, attackAngle));
             projectile.transform.SetParent(attackLevel.transform);

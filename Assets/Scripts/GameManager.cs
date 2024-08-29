@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
 
     //Amount of time elapsed since game started
-    float _baseTimeElapsed = 44.23f;
+    public float _baseTimeElapsed = 44.23f;
+    public float _startTimeElapsed = 44.23f;
 
     //Angle at whihc the BG png should be
     float DayNightCyclePNG_angle = 44.23f;

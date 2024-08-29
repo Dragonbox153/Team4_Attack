@@ -151,7 +151,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3527624765618842558}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa77331eb1235b74cbdf4dcad54aa332, type: 3}
   m_Name: 
@@ -177,6 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGSpriteRenderer: {fileID: 194342749583277501}
   Player: {fileID: 2828638798370919216}
+  _baseTimeElapsed: 44.23
+  _startTimeElapsed: 44.23
   DayNightCycleSpeedDelta: 7.47
   TideChangeDuration: 2
   CurrentTideLevel: -2.5

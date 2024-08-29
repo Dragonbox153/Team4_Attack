@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -12,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject[] enemies;
     GameObject attackLevel;
+    WaterEnemySpawner waterSpawner;
 
     public static EnemySpawner instance;
     private void Awake()
@@ -29,15 +31,41 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if time is over 6 seconds
-        if(time >= spawnPeriod)
+        int enemyType = 0;
+        float randomX = 0, randomY = 0;
+
+        if (time % spawnPeriod < Time.deltaTime)
         {
-            float randomY = 0;
-            float randomX = spawnX;
-            int enemyType = Random.Range(0, enemies.Length);
+            if (GameManager.Instance._baseTimeElapsed > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta * 1.25f)
+            {
+                enemyType = Random.Range(0, 4);
+            }
+            else if (GameManager.Instance._baseTimeElapsed > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta)
+            {
+                enemyType = Random.Range(0, 3);
+            }
+            if (GameManager.Instance._baseTimeElapsed > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta / 2)
+            {
+                 enemyType = Random.Range(0, 2);
+            }
+
+            if (GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta * 1.25f - GameManager.Instance._baseTimeElapsed < spawnPeriod && GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta * 1.25f - GameManager.Instance._baseTimeElapsed > 0)
+            {
+                enemyType = 2;
+            }
+            else if (GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta - GameManager.Instance._baseTimeElapsed < spawnPeriod && GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta - GameManager.Instance._baseTimeElapsed > 0)
+            {
+                enemyType = 1;
+            }
+            if (GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta / 2 - GameManager.Instance._baseTimeElapsed < spawnPeriod && GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta / 2 - GameManager.Instance._baseTimeElapsed > 0)
+            {
+                enemyType = 0;
+            }
+
             GameObject enemy = Instantiate(enemies[enemyType]);
 
-            switch(enemyType) { 
+            switch (enemyType)
+            {
                 case 0:
                     randomX = FlipX();
                     if (randomX < 0)
@@ -61,11 +89,10 @@ public class EnemySpawner : MonoBehaviour
                     randomY = spawnY;
                     randomX = Random.Range(-spawnX + 3, spawnX - 3);
                     break;
-             }
-            enemy.transform.position = new Vector2 (randomX, randomY);
-            enemy.transform.SetParent(attackLevel.transform);
+            }
 
-            time = 0;
+            enemy.transform.position = new Vector3(randomX, randomY, 0);
+            enemy.transform.SetParent(this.transform);
         }
 
         time += Time.deltaTime;

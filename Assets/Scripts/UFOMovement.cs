@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,35 @@ public class UFOMovement : MonoBehaviour
     [SerializeField] EnemySpawner spawner;
     [SerializeField] GameObject enemyFallen;
 
+    public float LazerShootTime = 3f;
+    public float LazerLength = 15;
+
     GameObject player;
+
+    public SpriteRenderer Lazer;
 
     private void Start()
     {
         player = GameObject.Find("Player");
+
+        StartCoroutine(ShootLazer());
+    }
+
+    private IEnumerator ShootLazer()
+    {
+        float ElapsedTime = 0;
+        while (true) {
+
+            float t = ElapsedTime / LazerShootTime;
+            float length = Mathf.Lerp(0, LazerLength, t);
+
+            Lazer.size = new Vector2(0.92f, length);
+
+            ElapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
     }
 
     // Update is called once per frame

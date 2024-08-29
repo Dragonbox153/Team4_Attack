@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0bd21b2339f42aa4e9d491cceb377117
+guid: c4a6ff3f5dae9ba4296696141bf63a76
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1848622869520473714
-    second: Waves_0
+      213: 159462413600283661
+    second: Lazer_Top_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,32 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Waves_0
+      name: Lazer_Top_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 200
-        height: 80
+        x: 619
+        y: 609
+        width: 92
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e81a19a6b4f5856e0800000000000000
-      internalID: -1848622869520473714
+      spriteID: d0cdba56836863200800000000000000
+      internalID: 159462413600283661
       vertices: []
       indices: 
       edges: []
@@ -170,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Waves_0: -1848622869520473714
+      Lazer_Top_0: 159462413600283661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

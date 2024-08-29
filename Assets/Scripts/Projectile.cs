@@ -2,17 +2,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public SpriteRenderer _spriteRenderer;
+
     private float _speed = 0;
     public bool Moving = false;
     public Vector3 MoveDir = Vector3.zero;
 
-    private void Start()
+    public void Launch(Vector3 _moveDir, Quaternion RotValue)
     {
-        
-    }
+        _spriteRenderer.transform.rotation = RotValue;
 
-    public void Launch(Vector3 _moveDir)
-    {
         _speed = 10f;
         MoveDir = _moveDir;
         Moving = true;

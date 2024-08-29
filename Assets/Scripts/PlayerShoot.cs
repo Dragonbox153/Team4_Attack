@@ -32,6 +32,8 @@ public class PlayerShoot : MonoBehaviour
         ProjectileShot = Instantiate(Projectile, transform.position, Quaternion.identity);
         _proj = ProjectileShot.GetComponent<Projectile>();
 
-        _proj.Launch(ShootPoint.transform.position - transform.position);
+
+
+        _proj.Launch(ShootPoint.transform.position - transform.position, PlayerMovement.Instance.TurretRotationPivot.transform.rotation);
     }
 }

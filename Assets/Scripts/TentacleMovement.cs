@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 public class TentacleMovement : MonoBehaviour
 {
     [SerializeField] float speed = 0.2f;
-    [SerializeField] EnemySpawner spawner;
+    [SerializeField] WaterEnemySpawner spawner;
     [SerializeField] GameObject enemyFallen;
     [SerializeField] GameObject exposedEnemy;
-    public float height = 0.9f;
-    public float hitboxHeight = 0.5f;
 
     GameObject player;
 
@@ -27,13 +25,19 @@ public class TentacleMovement : MonoBehaviour
         {
             if (transform.position.y < GameManager.Instance.CurrentTideLevel - 6)
             {
-                transform.position = ((Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime) / 2;
+                transform.position = (Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime;
+            }
+            else
+            {
+                Destroy(gameObject);
+                var exposedTentacle = Instantiate(exposedEnemy, transform.position, Quaternion.Euler(0, 0, 0));
+                exposedTentacle.transform.parent = player.transform.parent;
             }
 
             // if the water lowers, lower an amount based on how low Tentacle is
             if (GameManager.Instance.movingDown == true)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y + ((-spawner.spawnY - transform.position.y + 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + ((spawner.spawnY - transform.position.y + 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
             }
         }
     }
@@ -51,18 +55,5 @@ public class TentacleMovement : MonoBehaviour
             Destroy(collision.gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
-
-    private void ReplaceTentacle()
-    {
-        Destroy(gameObject);
-        var exposedTentacle = Instantiate(exposedEnemy, transform.position, Quaternion.Euler(0, 0, 0));
-        exposedTentacle.transform.parent = player.transform.parent;
-    }
-
-    private void GrowHitbox()
-    {
-        height += 0.4f;
-        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.15f, height);
     }
 }

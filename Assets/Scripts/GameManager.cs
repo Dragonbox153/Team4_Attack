@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         if (Mathf.Ceil(DayNightCyclePNG_angle) == 360)
         {
             movingDown = true;
-            DayNightCyclePNG_angle = 0;
+            _baseTimeElapsed = 0;
             StartCoroutine(ChangeTide(MidTide, LowTide));
         }
     }

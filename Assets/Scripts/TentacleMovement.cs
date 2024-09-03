@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class TentacleMovement : MonoBehaviour
 {
     [SerializeField] float speed = 0.2f;
-    [SerializeField] WaterEnemySpawner spawner;
+    [SerializeField] EnemySpawner spawner;
     [SerializeField] GameObject enemyFallen;
     [SerializeField] GameObject exposedEnemy;
 
@@ -37,7 +37,7 @@ public class TentacleMovement : MonoBehaviour
             // if the water lowers, lower an amount based on how low Tentacle is
             if (GameManager.Instance.movingDown == true)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y + ((spawner.spawnY - transform.position.y + 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + ((-spawner.spawnY - transform.position.y + 1) / (-spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
             }
         }
     }

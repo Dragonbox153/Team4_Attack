@@ -236,7 +236,7 @@ MonoBehaviour:
   enemySpeed: 0.5
   enemyTargetPoint: {x: 0, y: 0, z: 0}
   enemyFallen: {fileID: 8151882859866448082, guid: 92e1ddec862751149869bb52ac4c99fe, type: 3}
-  spawner: {fileID: 5436790365540357902, guid: 7cf61d273253f1145b6bd071a27d1b38, type: 3}
+  spawner: {fileID: 4998975219068446583, guid: 7cf61d273253f1145b6bd071a27d1b38, type: 3}
 --- !u!58 &230342124824979206
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class ScoreBoard : MonoBehaviour
 {
     public TMP_Text _currentScore_textBox;
     public TMP_Text _HiScore_textBox;
+    public TMP_Text _AmmoCount_textBox;
 
     public int PlayerScore = 0;
     public int _HISCORE = 0;
@@ -44,6 +45,11 @@ public class ScoreBoard : MonoBehaviour
         {
             PlayerPrefs.SetInt("HiScore", PlayerScore);
         }
+    }
+
+    public void SetAmmoCount(int count)
+    {
+        _AmmoCount_textBox.text = count.ToString();
     }
 
     public void LowerHealth(int SpriteToDrop)

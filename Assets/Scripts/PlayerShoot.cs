@@ -12,6 +12,10 @@ public class PlayerShoot : MonoBehaviour
     public GameObject ProjectileShot;
     public Projectile _proj;
 
+    public SpriteRenderer meter;
+    public int ammoCount = 15;
+    public float time = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +25,20 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        time += Time.deltaTime;
+
+        ScoreBoard.Inst.SetAmmoCount(ammoCount);
+
+        if(ammoCount < 15 && time >= 1)
+        {
+            time = 0;
+            ammoCount++;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && ammoCount > 0)
         {
             ShootProjectile();
+            ammoCount--;
         }
     }
 

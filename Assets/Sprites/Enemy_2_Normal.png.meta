@@ -3,23 +3,8 @@ guid: ef302c07c241028488790f447ed6ec4b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5720027134251938545
-    second: Enemy_2_Normal 1_0
-  - first:
-      213: -4670472901123388121
-    second: Enemy_2_Normal 1_1
-  - first:
-      213: -2399522360130288256
-    second: Enemy_2_Normal 1_2
-  - first:
-      213: -214881732840452052
-    second: Enemy_2_Normal 1_3
-  - first:
-      213: -5067790327322737951
-    second: Enemy_2_Normal 1_4
-  - first:
-      213: 4658894532597097348
-    second: Enemy_2_Normal 1_5
+      213: -4733432730191235311
+    second: Enemy_2_Normal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -141,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy_2_Normal 1_0
+      name: Enemy_2_Normal_0
       rect:
         serializedVersion: 2
         x: 109
@@ -155,113 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f2bea26f5e916f40800000000000000
-      internalID: 5720027134251938545
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_2_Normal 1_1
-      rect:
-        serializedVersion: 2
-        x: 239
-        y: 229
-        width: 202
-        height: 172
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 72dc37344a52f2fb0800000000000000
-      internalID: -4670472901123388121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_2_Normal 1_2
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 219
-        width: 122
-        height: 202
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 085c3dd602f23bed0800000000000000
-      internalID: -2399522360130288256
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_2_Normal 1_3
-      rect:
-        serializedVersion: 2
-        x: 639
-        y: 229
-        width: 202
-        height: 172
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c201355d336940df0800000000000000
-      internalID: -214881732840452052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_2_Normal 1_4
-      rect:
-        serializedVersion: 2
-        x: 879
-        y: 219
-        width: 122
-        height: 202
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1e284cf2c879ba9b0800000000000000
-      internalID: -5067790327322737951
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_2_Normal 1_5
-      rect:
-        serializedVersion: 2
-        x: 1029
-        y: 229
-        width: 202
-        height: 172
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 483a57db4e7b7a040800000000000000
-      internalID: 4658894532597097348
+      spriteID: 1177ebcb2087f4eb0800000000000000
+      internalID: -4733432730191235311
       vertices: []
       indices: 
       edges: []
@@ -269,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -277,12 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy_2_Normal 1_0: 5720027134251938545
-      Enemy_2_Normal 1_1: -4670472901123388121
-      Enemy_2_Normal 1_2: -2399522360130288256
-      Enemy_2_Normal 1_3: -214881732840452052
-      Enemy_2_Normal 1_4: -5067790327322737951
-      Enemy_2_Normal 1_5: 4658894532597097348
+      Enemy_2_Normal_0: -4733432730191235311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

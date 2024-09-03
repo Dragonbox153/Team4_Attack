@@ -358,6 +358,9 @@ MonoBehaviour:
   Projectile: {fileID: 433673963905124627, guid: 0f4082bd7e19521478a26eaa19bbb20c, type: 3}
   ProjectileShot: {fileID: 0}
   _proj: {fileID: 0}
+  meter: {fileID: 778975756407047061, guid: b37aa3786add5f445a09efa4cf2ffc58, type: 3}
+  ammoCount: 15
+  time: 0
 --- !u!114 &990498443016308315
 MonoBehaviour:
   m_ObjectHideFlags: 0

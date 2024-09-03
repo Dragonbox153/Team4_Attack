@@ -11,7 +11,7 @@ public class MermanMovement : MonoBehaviour
 
     GameObject player;
     [SerializeField] GameObject enemyFallen;
-    [SerializeField] WaterEnemySpawner spawner;
+    [SerializeField] EnemySpawner spawner;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +20,8 @@ public class MermanMovement : MonoBehaviour
         player = GameObject.Find("Player");
         if (GameManager.Instance != null) 
         {
-            float randomX = Random.Range(-spawner.spawnX, spawner.spawnX);
-            float randomY = Random.Range(spawner.spawnY + 1.5f, GameManager.Instance.CurrentTideLevel - 0.5f);
+            float randomX = Random.Range(-spawner.spawnX + 2, spawner.spawnX - 2);
+            float randomY = Random.Range(-spawner.spawnY + 1.5f, GameManager.Instance.CurrentTideLevel - 0.5f);
             enemyTargetPoint = new Vector3(randomX, randomY, transform.position.z);
         }
         else
@@ -49,12 +49,12 @@ public class MermanMovement : MonoBehaviour
             // if the water rises, rise an amount based on how low merman is
             if (GameManager.Instance.movingUp == true)
             {
-                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y + ((spawner.spawnY - enemyTargetPoint.y + 1) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, enemyTargetPoint.z);
+                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y + ((-spawner.spawnY - enemyTargetPoint.y + 1) / (-spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, enemyTargetPoint.z);
             }
             else if (GameManager.Instance.movingDown == true)
             {
                 enemySpeed = 4;
-                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y - ((spawner.spawnY - enemyTargetPoint.y - 2) / (spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, enemyTargetPoint.z);
+                enemyTargetPoint = new Vector3(enemyTargetPoint.x, enemyTargetPoint.y - ((-spawner.spawnY - enemyTargetPoint.y - 2) / (-spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, enemyTargetPoint.z);
             }
         }
     }

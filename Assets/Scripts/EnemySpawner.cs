@@ -117,7 +117,7 @@ public class EnemySpawner : MonoBehaviour
                 if (enemyType == 1)
                 {
                     randomX = Random.Range(-spawnX + 3, spawnX - 3);
-                    randomY = -12f;
+                    randomY = -6f;
                 }
                 else
                 {
@@ -125,7 +125,7 @@ public class EnemySpawner : MonoBehaviour
                     randomY = Random.Range(-spawnY, GameManager.Instance.CurrentTideLevel - 1);
                 }
 
-                if (randomX < 0)
+                if (randomX > 0 && enemyType == 0)
                 {
                     waterEnemy.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
                 }

@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnX;
     [SerializeField] int spawnPeriod = 6;
     [SerializeField] float time = 0;
+    float gameTime = 44.23f;
 
     [SerializeField] GameObject[] waterEnemies;
     public GameObject[] enemies;
@@ -35,9 +36,11 @@ public class EnemySpawner : MonoBehaviour
         int enemyType = 0;
         float randomX = 0, randomY = 0;
 
+        gameTime += Time.deltaTime * GameManager.Instance.DayNightCycleSpeedDelta;
+
         if (time % spawnPeriod < Time.deltaTime)
         {
-            if (GameManager.Instance._baseTimeElapsed > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta)
+            if (gameTime > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta)
             {
                 enemyType = Random.Range(0, 3);
                 if (stage == 4)
@@ -46,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
                     enemyType = 2;
                 }
             }
-            else if (GameManager.Instance._baseTimeElapsed > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta / 2)
+            else if (gameTime > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta / 2)
             {
                 enemyType = Random.Range(0, 2);
                 if (stage == 2)
@@ -91,7 +94,7 @@ public class EnemySpawner : MonoBehaviour
 
             // water enemys
 
-            if (GameManager.Instance._baseTimeElapsed > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta * 3 / 4)
+            if (gameTime > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta * 3 / 4)
             {
                 enemyType = Random.Range(0, 2);
                 if (stage == 3)
@@ -100,7 +103,7 @@ public class EnemySpawner : MonoBehaviour
                     enemyType = 1;
                 }
             }
-            else if (GameManager.Instance._baseTimeElapsed > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta /4)
+            else if (gameTime > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta /4)
             {
                 if (stage == 1)
                 {
@@ -109,24 +112,20 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
 
-            if (GameManager.Instance._baseTimeElapsed > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta / 4)
+            if (gameTime > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta / 4)
             {
                 GameObject waterEnemy = Instantiate(waterEnemies[enemyType]);
 
                 if (enemyType == 1)
                 {
-                    randomX = Random.Range(-spawnX + 3, spawnX - 3);
+                    randomX = Random.Range(-spawnX + 1, spawnX - 1);
+                    Debug.Log(randomX);
                     randomY = -12f;
                 }
                 else
                 {
                     randomX = FlipX();
                     randomY = Random.Range(-spawnY, GameManager.Instance.CurrentTideLevel - 1);
-                }
-
-                if (randomX < 0)
-                {
-                    waterEnemy.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
                 }
 
                 waterEnemy.transform.position = new Vector2(randomX, randomY);

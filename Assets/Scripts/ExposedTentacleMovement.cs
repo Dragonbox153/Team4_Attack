@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class ExposedTentacleMovement : MonoBehaviour
 {
     [SerializeField] float speed = 0.2f;
-    [SerializeField] WaterEnemySpawner spawner;
+    [SerializeField] EnemySpawner spawner;
+
+    [SerializeField] GameObject enemyFallen;
 
     GameObject player;
 
@@ -23,7 +25,7 @@ public class ExposedTentacleMovement : MonoBehaviour
         {
             if (transform.position.y < GameManager.Instance.CurrentTideLevel - 6)
             {
-                transform.position = (Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime;
+                transform.position = -(Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime;
             }
         }
     }
@@ -35,5 +37,12 @@ public class ExposedTentacleMovement : MonoBehaviour
             PlayerMovement.Instance.PlayerHit();
             Destroy(gameObject);
         }
+        else if (collision.gameObject.tag == "Projectile")
+        {
+            Destroy(gameObject);
+            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
+            fallenEnemy.transform.parent = player.transform.parent;
+        }
     }
+    
 }

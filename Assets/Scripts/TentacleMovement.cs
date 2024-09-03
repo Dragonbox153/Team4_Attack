@@ -27,12 +27,6 @@ public class TentacleMovement : MonoBehaviour
             {
                 transform.position = (Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime;
             }
-            else
-            {
-                Destroy(gameObject);
-                var exposedTentacle = Instantiate(exposedEnemy, transform.position, Quaternion.Euler(0, 0, 0));
-                exposedTentacle.transform.parent = player.transform.parent;
-            }
 
             // if the water lowers, lower an amount based on how low Tentacle is
             if (GameManager.Instance.movingDown == true)
@@ -55,5 +49,12 @@ public class TentacleMovement : MonoBehaviour
             Destroy(collision.gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    public void ReplaceWithExposed()
+    {
+        Destroy(gameObject);
+        var fallenEnemy = Instantiate(exposedEnemy, transform.position, Quaternion.Euler(0, 0, 0));
+        fallenEnemy.transform.parent = player.transform.parent;
     }
 }

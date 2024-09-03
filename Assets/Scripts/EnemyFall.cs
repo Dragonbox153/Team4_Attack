@@ -36,6 +36,7 @@ public class EnemyFall : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            ScoreBoard.Inst.AddScore(1);
         }
     }
 }

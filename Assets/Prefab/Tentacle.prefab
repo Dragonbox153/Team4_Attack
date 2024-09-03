@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7039498092146774445}
   - component: {fileID: 160419595253026405}
   - component: {fileID: 8492196229537079253}
+  - component: {fileID: -4659508391206558691}
+  - component: {fileID: 1260289271265006494}
   m_Layer: 0
   m_Name: Tentacle
   m_TagString: Untagged
@@ -74,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1860050021
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 854125269, guid: e7ae423ea1e626e47af746e0586a4934, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -110,6 +112,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4659508391206558691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779004666100666017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60418b660e693134ea0cf02f4908b36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 160419595253026405}
+  DeadEnemySprite: {fileID: 0}
+--- !u!114 &1260289271265006494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779004666100666017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36d4c7c410434b4fb4f2b44fac84b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.2
+  spawner: {fileID: 4998975219068446583, guid: 7cf61d273253f1145b6bd071a27d1b38, type: 3}
+  enemyFallen: {fileID: 6099392794152824403, guid: 2dfa1bc3875eef8409c239b4573fbd79, type: 3}
+  exposedEnemy: {fileID: 7445894036206131168, guid: d75eaff5c484c3245a49e399097b16fd, type: 3}
 --- !u!1 &7307796124958083509
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,8 +170,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.042999744, y: -1.8129998, z: 0}
-  m_LocalScale: {x: 0.3774, y: 0.3596, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.37739998, y: 0.3596, z: 0.99999994}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7039498092146774445}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

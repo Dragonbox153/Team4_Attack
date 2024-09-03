@@ -26,7 +26,13 @@ public class EnemyFall : MonoBehaviour
             PlayerMovement.Instance.PlayerHit();
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Projectile")
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            ScoreBoard.Inst.AddScore(3);
+        }
+        else if (collision.gameObject.tag == "Projectile")
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);

@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            ScoreBoard.Inst.AddScore(1);
+            ScoreBoard.Inst.AddScore(2);
 
             Destroy(this.gameObject);
         }

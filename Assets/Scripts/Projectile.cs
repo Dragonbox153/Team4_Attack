@@ -34,12 +34,6 @@ public class Projectile : MonoBehaviour
 
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.tag == "Tentacle")
-        {
-            ScoreBoard.Inst.AddScore(1);
-
-            Destroy(this.gameObject);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

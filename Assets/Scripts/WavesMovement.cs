@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class WavesMovement : MonoBehaviour
 {
-    float time = 0;
+    public SpriteRenderer _spriteRenderer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float _speed = 1;
+
+    public float _TileOffSet = 2;
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if(time > 6 * Mathf.PI)
-        {
-            time = time % 6 * Mathf.PI;
-        }
-        transform.position = new Vector2(Mathf.Sin(time), transform.position.y);
+        _TileOffSet += Time.deltaTime * _speed;
+        if (_TileOffSet < 2) _TileOffSet = 2;
+
+        _spriteRenderer.size = new Vector2(_TileOffSet, 0.85714f);
+
+        if (_TileOffSet > 100) _TileOffSet = 2;
     }
 }

@@ -87,6 +87,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
             enemy.transform.position = new Vector3(randomX, randomY, 0);
+            enemy.GetComponent<EnemySpriteBehaviour>().spriteRenderer.flipX = (randomX > 0) ? false : true; 
             enemy.transform.SetParent(this.transform);
 
             // water enemys
@@ -130,6 +131,7 @@ public class EnemySpawner : MonoBehaviour
                 }
 
                 waterEnemy.transform.position = new Vector2(randomX, randomY);
+                waterEnemy.GetComponent<EnemySpriteBehaviour>().spriteRenderer.flipX = (randomX > 0) ? true : false;
                 waterEnemy.transform.SetParent(attackLevel.transform);
             }
         }

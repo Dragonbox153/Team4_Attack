@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class EnemySpriteBehaviour : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    [SerializeField] public SpriteRenderer spriteRenderer;
 
     public Sprite DeadEnemySprite;
 
     void Awake()
     {
-        spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        
     }
 
 

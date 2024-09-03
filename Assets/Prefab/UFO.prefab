@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5077843329461587168}
   - component: {fileID: 1972010309294469937}
   - component: {fileID: 4196972117301479210}
+  - component: {fileID: 5027210128589749234}
   m_Layer: 0
   m_Name: UFO
   m_TagString: Enemy
@@ -267,6 +268,20 @@ MonoBehaviour:
   LazerShootTime: 2
   LazerLength: 30
   Lazer: {fileID: 3790224630623541079}
+--- !u!114 &5027210128589749234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448179651761642804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60418b660e693134ea0cf02f4908b36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2972348161005638834}
+  DeadEnemySprite: {fileID: 0}
 --- !u!1001 &3349115543668454388
 PrefabInstance:
   m_ObjectHideFlags: 0

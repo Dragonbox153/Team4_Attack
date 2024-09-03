@@ -6,15 +6,20 @@ using UnityEngine.SceneManagement;
 public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] float speed = 0.05f;
+    [SerializeField] Transform rotationPivot;
 
     Vector2 moveTowards = Vector2.zero;
     GameObject player;
+
+
     
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
         moveTowards = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
+
+        rotationPivot.transform.up = moveTowards;
     }
 
     // Update is called once per frame

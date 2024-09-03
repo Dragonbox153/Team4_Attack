@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 7429678938583623721}
   - component: {fileID: 6513297137695125881}
   - component: {fileID: 230342124824979206}
+  - component: {fileID: 7949319713064335807}
   m_Layer: 0
   m_Name: Merman
   m_TagString: Enemy
@@ -272,3 +273,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &7949319713064335807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5954531896137902485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60418b660e693134ea0cf02f4908b36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6481814369169403214}
+  DeadEnemySprite: {fileID: 0}

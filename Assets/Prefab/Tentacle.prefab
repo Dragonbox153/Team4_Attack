@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 7141834375673182788}
   - component: {fileID: 4958408604954287835}
   - component: {fileID: -8869036813190614640}
+  - component: {fileID: 3827861010707293022}
   m_Layer: 0
   m_Name: Tentacle
   m_TagString: Enemy
@@ -265,3 +266,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3827861010707293022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940803838051645753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60418b660e693134ea0cf02f4908b36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3880239744617585349}
+  DeadEnemySprite: {fileID: 0}

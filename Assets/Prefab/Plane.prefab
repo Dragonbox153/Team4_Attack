@@ -294,4 +294,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60418b660e693134ea0cf02f4908b36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6766944744371473895}
   DeadEnemySprite: {fileID: -5435250399842097464, guid: b2d7c9485a9f84c4e977c80c4e09b0b2, type: 3}

@@ -109,11 +109,9 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator TurnOnCollider()
     {
-        Debug.Log("Collider Turned Off");
         yield return new WaitForSeconds(2.5f);
         _collider.enabled = true;
         StopCoroutine(BlinkRoutine);
-        Debug.Log("Collider Turned On");
     }
 
     Coroutine BlinkRoutine;

@@ -42,7 +42,7 @@ public class WaterEnemySpawner : MonoBehaviour
             }
 
             if(randomX < 0)
-                enemy.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+                enemy.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
 
             enemy.transform.position = new Vector2(randomX, randomY);
             enemy.transform.SetParent(attackLevel.transform);

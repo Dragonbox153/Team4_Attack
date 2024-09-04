@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] GameObject[] waterEnemies;
     public GameObject[] enemies;
-    GameObject attackLevel;
+    public GameObject attackLevel;
     [SerializeField] GameObject bubbleSystem;
 
     int tentacleNumber = 1;
@@ -118,7 +118,7 @@ public class EnemySpawner : MonoBehaviour
 
             GameObject waterEnemy = Instantiate(waterEnemies[1]);
             float randomX = (i + 1) * (2 * spawnX / (tentacleNumber + 1)) - spawnX;
-            float randomY = -18;
+            float randomY = -11;
             waterEnemy.transform.position = new Vector2(randomX, randomY);
             waterEnemy.transform.SetParent(attackLevel.transform);
         }

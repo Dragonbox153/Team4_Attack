@@ -23,33 +23,17 @@ public class TentacleMovement : MonoBehaviour
     {
         if (player != null)
         {
-            if (transform.position.y < GameManager.Instance.CurrentTideLevel - 6)
+            if (transform.position.y < GameManager.Instance.CurrentTideLevel - 11)
             {
                 transform.position = (Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime;
-            }
-
-            // if the water lowers, lower an amount based on how low Tentacle is
-            if (GameManager.Instance.movingDown == true)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y + ((-spawner.spawnY - transform.position.y + 1) / (-spawner.spawnY - GameManager.Instance.CurrentTideLevel)) * Time.deltaTime, transform.position.z);
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void SwapTentacle()
     {
-        if (collision.gameObject.tag == "Projectile")
-        {
-            Destroy(gameObject);
-            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
-            fallenEnemy.transform.parent = player.transform.parent;
-
-            
-        }
-        else if (collision.gameObject.tag == "Player")
-        {
-            Destroy(collision.gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        Destroy(gameObject);
+        GameObject newTentacle = Instantiate(exposedEnemy, new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z), transform.rotation);
+        newTentacle.transform.SetParent(EnemySpawner.instance.attackLevel.transform);
     }
 }

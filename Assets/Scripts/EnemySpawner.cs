@@ -121,7 +121,11 @@ public class EnemySpawner : MonoBehaviour
             waterEnemy.transform.position = new Vector2(randomX, randomY);
             waterEnemy.transform.SetParent(attackLevel.transform);
         }
-        tentacleNumber++;
+        
+        if(tentacleNumber < 5)
+        {
+            tentacleNumber++;
+        }
     }
 
     float FlipX()

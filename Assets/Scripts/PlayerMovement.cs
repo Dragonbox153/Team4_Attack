@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float leftEdgeWorldPositionX;
 
     public GameObject TurretRotationPivot;
+    public GameObject level;
 
     public int LivesLeft = 4;
 
@@ -104,7 +105,9 @@ public class PlayerMovement : MonoBehaviour
 
         ScoreBoard.Inst.CheckIfNewHiScore();
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        level.SetActive(false);
+        GameOverMenu.instance.gameObject.SetActive(true);
+        ScoreBoard.Inst.gameObject.SetActive(false);
     }
 
     IEnumerator TurnOnCollider()

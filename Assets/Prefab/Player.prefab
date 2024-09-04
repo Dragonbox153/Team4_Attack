@@ -303,7 +303,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8822026731380903784}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -378,6 +378,7 @@ MonoBehaviour:
   rightEdgeWorldPositionX: 0
   leftEdgeWorldPositionX: 0
   TurretRotationPivot: {fileID: 7877301253246267712}
+  level: {fileID: 3527624765618842558, guid: 7cf61d273253f1145b6bd071a27d1b38, type: 3}
   LivesLeft: 4
   _barrelSpriteRenderer: {fileID: 3187215566071102819}
 --- !u!50 &3834566249267606085

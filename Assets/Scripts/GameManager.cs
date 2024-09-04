@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public bool movingUp = false;
     public bool movingDown = false;
 
+    public int numTentaclesSpawned = 0;
+
     public Vector3 BufferPosition = Vector3.zero; 
 
     //Refference to all the tide type
@@ -59,6 +61,12 @@ public class GameManager : MonoBehaviour
         if (Mathf.Ceil(DayNightCyclePNG_angle) == 180)
         {
             movingUp = true;
+            
+            if(numTentaclesSpawned == 0)
+            {
+                EnemySpawner.instance.SpawnTentacle();
+            }
+
             StartCoroutine(ChangeTide(MidTide, HighTide));
         }
 

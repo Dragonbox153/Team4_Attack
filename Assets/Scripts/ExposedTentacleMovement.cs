@@ -25,7 +25,7 @@ public class ExposedTentacleMovement : MonoBehaviour
         {
             if (transform.position.y < GameManager.Instance.CurrentTideLevel - 6)
             {
-                transform.position = -(Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime;
+                transform.position = (Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime;
             }
         }
     }
@@ -37,11 +37,12 @@ public class ExposedTentacleMovement : MonoBehaviour
             PlayerMovement.Instance.PlayerHit();
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "Projectile")
+        else if (collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "FallenEnemy")
         {
             Destroy(gameObject);
             var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
             fallenEnemy.transform.parent = player.transform.parent;
+            GameManager.Instance.numTentaclesSpawned--;
         }
     }
     

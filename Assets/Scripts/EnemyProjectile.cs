@@ -18,7 +18,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         player = GameObject.Find("Player");
         moveTowards = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
-
+        Destroy(gameObject, 4f);
         rotationPivot.transform.up = moveTowards;
     }
 
@@ -26,11 +26,6 @@ public class EnemyProjectile : MonoBehaviour
     void Update()
     {
         transform.position = (Vector2)(transform.position) + moveTowards * speed * Time.deltaTime;
-
-        if (transform.position.y < -5)
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

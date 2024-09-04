@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallenDrone
       objectReference: {fileID: 0}
+    - target: {fileID: 5537528053972179890, guid: 7b030e9decc4d8f41898666917c67281, type: 3}
+      propertyPath: m_TagString
+      value: FallenEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6483458791677875813, guid: 7b030e9decc4d8f41898666917c67281, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5

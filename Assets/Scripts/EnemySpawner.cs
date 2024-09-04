@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] enemies;
     GameObject attackLevel;
 
+    int tentacleNumber = 1;
     int stage = 1;
 
     public static EnemySpawner instance;
@@ -43,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
             if (gameTime > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta)
             {
                 enemyType = Random.Range(0, 3);
-                if (stage == 4)
+                if (stage == 3)
                 {
                     stage++;
                     enemyType = 2;
@@ -93,40 +94,11 @@ public class EnemySpawner : MonoBehaviour
             enemy.transform.SetParent(this.transform);
 
             // water enemys
-
-            if (gameTime > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta * 3 / 4)
-            {
-                enemyType = Random.Range(0, 2);
-                if (stage == 3)
-                {
-                    stage++;
-                    enemyType = 1;
-                }
-            }
-            else if (gameTime > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta /4)
-            {
-                if (stage == 1)
-                {
-                    stage++;
-                    enemyType = 0;
-                }
-            }
-
             if (gameTime > GameManager.Instance._startTimeElapsed * GameManager.Instance.DayNightCycleSpeedDelta / 4)
             {
-                GameObject waterEnemy = Instantiate(waterEnemies[enemyType]);
-
-                if (enemyType == 1)
-                {
-                    randomX = Random.Range(-spawnX + 1, spawnX - 1);
-                    Debug.Log(randomX);
-                    randomY = -12f;
-                }
-                else
-                {
-                    randomX = FlipX();
-                    randomY = Random.Range(-spawnY, GameManager.Instance.CurrentTideLevel - 1);
-                }
+                GameObject waterEnemy = Instantiate(waterEnemies[0]);
+                randomX = FlipX();
+                randomY = Random.Range(-spawnY, GameManager.Instance.CurrentTideLevel - 1);
 
                 waterEnemy.transform.position = new Vector2(randomX, randomY);
                 waterEnemy.GetComponent<EnemySpriteBehaviour>().spriteRenderer.flipX = (randomX > 0) ? true : false;
@@ -135,6 +107,21 @@ public class EnemySpawner : MonoBehaviour
         }
 
         time += Time.deltaTime;
+    }
+
+    public void SpawnTentacle()
+    {
+        for (int i = 0; i < tentacleNumber; i++)
+        {
+            GameManager.Instance.numTentaclesSpawned++;
+
+            GameObject waterEnemy = Instantiate(waterEnemies[1]);
+            float randomX = (i + 1) * (2 * spawnX / (tentacleNumber + 1)) - spawnX;
+            float randomY = -12;
+            waterEnemy.transform.position = new Vector2(randomX, randomY);
+            waterEnemy.transform.SetParent(attackLevel.transform);
+        }
+        tentacleNumber++;
     }
 
     float FlipX()

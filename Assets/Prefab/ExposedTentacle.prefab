@@ -265,6 +265,7 @@ MonoBehaviour:
   speed: 2
   spawner: {fileID: 4998975219068446583, guid: 7cf61d273253f1145b6bd071a27d1b38, type: 3}
   enemyFallen: {fileID: 6099392794152824403, guid: 2dfa1bc3875eef8409c239b4573fbd79, type: 3}
+  TentacleHealth: 5
 --- !u!114 &1309920987366243848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,4 +279,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeAmount: 0.1
-  shakeDuration: 0.2
+  shakeDuration: 0.3
+  spriteRenderer: {fileID: 6197912687862004840}

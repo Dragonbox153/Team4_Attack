@@ -86,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
     {
         LivesLeft--;
 
+        if (LivesLeft < 0) return;
+
         _collider.enabled = false;
         StartCoroutine(TurnOnCollider());
         BlinkRoutine = StartCoroutine(BlinkPlayer());

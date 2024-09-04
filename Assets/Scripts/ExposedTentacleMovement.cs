@@ -10,12 +10,19 @@ public class ExposedTentacleMovement : MonoBehaviour
 
     [SerializeField] GameObject enemyFallen;
 
+    ObjectShaker shaker;
+    
     GameObject player;
+
+
+    [SerializeField] int TentacleHealth = 5;
+
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        shaker = GetComponent<ObjectShaker>();
     }
 
     // Update is called once per frame
@@ -39,10 +46,20 @@ public class ExposedTentacleMovement : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "FallenEnemy")
         {
-            Destroy(gameObject);
-            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
-            fallenEnemy.transform.parent = player.transform.parent;
-            GameManager.Instance.numTentaclesSpawned--;
+            if (TentacleHealth > 0)
+            {
+                TentacleHealth--;
+                shaker.ShakeObject();
+            }
+            else
+            {
+                Destroy(gameObject);
+
+                var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
+                fallenEnemy.transform.parent = player.transform.parent;
+                GameManager.Instance.numTentaclesSpawned--;
+            }
+
         }
     }
     

@@ -13,7 +13,20 @@ public class PlayerShoot : MonoBehaviour
     public Projectile _proj;
 
     public SpriteRenderer meter;
-    public int ammoCount = 15;
+
+    public int _ammoCount = 15;
+    public int ammoCount 
+    {
+        get 
+        { 
+            return _ammoCount; 
+        }
+        set 
+        {
+            ScoreBoard.Inst.updateAmmoCountUI(15, value);
+            _ammoCount = value; 
+        }
+    }
     public float time = 0;
 
     // Start is called before the first frame update
@@ -27,7 +40,7 @@ public class PlayerShoot : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        ScoreBoard.Inst.SetAmmoCount(ammoCount);
+        //ScoreBoard.Inst.SetAmmoCount(ammoCount);
 
         if(ammoCount < 15 && time >= 1)
         {

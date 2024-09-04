@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: e7ae423ea1e626e47af746e0586a4934
+guid: dafb71c60ca509849ad8ad7da51cb693
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8968299138258521225
+    second: Overheat_Bar_0
+  - first:
+      213: 7551043254583845746
+    second: Overheat_Bar_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -123,169 +129,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 6_0
+      name: Overheat_Bar_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 125
-        height: 600
+        x: 499
+        y: 689
+        width: 612
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3737c58053b1b55478055c22c043db04
-      internalID: 854125269
+      spriteID: 773b8a823733a8380800000000000000
+      internalID: -8968299138258521225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_1
+      name: Overheat_Bar_1
       rect:
         serializedVersion: 2
-        x: 125
-        y: 0
-        width: 125
-        height: 600
+        x: 499
+        y: 569
+        width: 612
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c78ed5dfcc946184fa668fdccd1a5eea
-      internalID: -669181889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6_2
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 0
-        width: 125
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0e120cc7a1f0d24883ec9ef372fdafe
-      internalID: -1987992801
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6_3
-      rect:
-        serializedVersion: 2
-        x: 375
-        y: 0
-        width: 125
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a22b175a7706fcd449b159b6dd5baff8
-      internalID: -1734953508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6_4
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 125
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8dc7f9fff971dfd49979ffaa7316ba4b
-      internalID: 1932945037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6_5
-      rect:
-        serializedVersion: 2
-        x: 625
-        y: 0
-        width: 125
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ad02a9a160f00a409ebb0bfe9a7e03b
-      internalID: 67043192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6_6
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 0
-        width: 125
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca9921b1ff4b2804092de8395a078185
-      internalID: 1491201070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6_7
-      rect:
-        serializedVersion: 2
-        x: 875
-        y: 0
-        width: 125
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e9042fec6cd8294b8bc7f7374ea0374
-      internalID: 796594237
+      spriteID: 273641935d1bac860800000000000000
+      internalID: 7551043254583845746
       vertices: []
       indices: 
       edges: []
@@ -293,7 +173,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -301,14 +181,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      6_0: 854125269
-      6_1: -669181889
-      6_2: -1987992801
-      6_3: -1734953508
-      6_4: 1932945037
-      6_5: 67043192
-      6_6: 1491201070
-      6_7: 796594237
+      Overheat_Bar_0: -8968299138258521225
+      Overheat_Bar_1: 7551043254583845746
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

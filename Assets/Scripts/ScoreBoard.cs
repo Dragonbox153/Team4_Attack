@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreBoard : MonoBehaviour
 {
     public TMP_Text _currentScore_textBox;
     public TMP_Text _HiScore_textBox;
     public TMP_Text _AmmoCount_textBox;
+
+    public Image AmmoCountUI;
 
     public int PlayerScore = 0;
     public int _HISCORE = 0;
@@ -55,5 +58,11 @@ public class ScoreBoard : MonoBehaviour
     public void LowerHealth(int SpriteToDrop)
     {
         _lives_images[SpriteToDrop].SetActive(false);
+    }
+
+    public void updateAmmoCountUI(float total, float value)
+    {
+        float ammoUIValue = (float)(value/ total);
+        AmmoCountUI.fillAmount = ammoUIValue;
     }
 }

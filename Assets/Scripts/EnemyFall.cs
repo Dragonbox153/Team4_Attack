@@ -21,12 +21,12 @@ public class EnemyFall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            PlayerMovement.Instance.PlayerHit();
-            Destroy(gameObject);
-        }
-        else if (collision.gameObject.tag == "Enemy")
+        //if (collision.gameObject.tag == "Player")
+        //{
+        //    PlayerMovement.Instance.PlayerHit();
+        //    Destroy(gameObject);
+        //}
+        if (collision.gameObject.tag == "Enemy")
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);

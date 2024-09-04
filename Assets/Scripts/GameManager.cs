@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public bool movingDown = false;
 
     public int numTentaclesSpawned = 0;
+    public int numBubblesSpawned = 0;
 
     public Vector3 BufferPosition = Vector3.zero; 
 
@@ -55,6 +56,12 @@ public class GameManager : MonoBehaviour
         if(Mathf.Ceil(DayNightCyclePNG_angle) == 90)
         {
             movingUp = true;
+
+            if (numBubblesSpawned == 0 && numTentaclesSpawned == 0)
+            {
+                EnemySpawner.instance.SpawnBubbles();
+            }
+
             StartCoroutine(ChangeTide(LowTide, MidTide));
         }
 

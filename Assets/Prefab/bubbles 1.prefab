@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4105132146545276689}
   - component: {fileID: 3948014415221858087}
   - component: {fileID: 3641902874073028172}
+  - component: {fileID: 6609590906773018990}
   m_Layer: 0
   m_Name: bubbles 1
   m_TagString: Untagged
@@ -604,7 +605,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 100
+    maxNumParticles: 20
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -4832,3 +4833,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6609590906773018990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151882859866448082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97471ccc8fdf7874699ec8e1c84d333b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 15

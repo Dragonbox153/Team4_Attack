@@ -23,7 +23,7 @@ public class ExposedTentacleMovement : MonoBehaviour
     {
         if (player != null)
         {
-            if (transform.position.y < GameManager.Instance.CurrentTideLevel - 6)
+            if (transform.position.y < GameManager.Instance.CurrentTideLevel - 11)
             {
                 transform.position = (Vector2)transform.position + (Vector2)transform.up * speed * Time.deltaTime;
             }

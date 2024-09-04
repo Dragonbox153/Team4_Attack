@@ -30,7 +30,10 @@ public class GameOverMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        highScore.text = ScoreBoard.Inst._HISCORE.ToString();
+        if(ScoreBoard.Inst.gameObject != null)
+        {
+            highScore.text = ScoreBoard.Inst._HISCORE.ToString();
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnBack();

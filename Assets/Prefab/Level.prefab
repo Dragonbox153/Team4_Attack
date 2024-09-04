@@ -146,6 +146,7 @@ MonoBehaviour:
   - {fileID: 7823893143214668409, guid: 0da0d2cafed717646836f28edcaa892a, type: 3}
   - {fileID: 3043811680671046909, guid: f23df2522ac1b774b971ebf3a4b4066d, type: 3}
   - {fileID: 8448179651761642804, guid: a99b55da458564e40a3e5c16500caf1c, type: 3}
+  bubbleSystem: {fileID: 8151882859866448082, guid: 23a9ba7ba46d40b409e6ebd9677ec7ac, type: 3}
 --- !u!114 &8393775249059918308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +168,7 @@ MonoBehaviour:
   CurrentTideLevel: -2.5
   movingUp: 0
   movingDown: 0
+  numTentaclesSpawned: 0
   BufferPosition: {x: 0, y: 0, z: 0}
   HighTide: {x: 0, y: 2.5, z: 0}
   MidTide: {x: 0, y: 0, z: 0}
@@ -461,6 +463,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6923955055974340502}
     m_Modifications:
+    - target: {fileID: 990498443016308315, guid: 36c0e25dfb9da4d4eb8ac84603eaf640, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 3527624765618842558}
     - target: {fileID: 2066887044463022042, guid: 36c0e25dfb9da4d4eb8ac84603eaf640, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.01

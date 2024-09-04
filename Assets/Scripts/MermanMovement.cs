@@ -20,7 +20,7 @@ public class MermanMovement : MonoBehaviour
         player = GameObject.Find("Player");
         if (GameManager.Instance != null) 
         {
-            float randomX = Random.Range(-spawner.spawnX, spawner.spawnX);
+            float randomX = Random.Range(-spawner.spawnX + 3, spawner.spawnX - 3);
             float randomY = Random.Range(-spawner.spawnY + 1.5f, GameManager.Instance.CurrentTideLevel - 0.5f);
             enemyTargetPoint = new Vector3(randomX, randomY, transform.position.z);
         }

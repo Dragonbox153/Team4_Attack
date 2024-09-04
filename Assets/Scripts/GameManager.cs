@@ -38,11 +38,18 @@ public class GameManager : MonoBehaviour
     public Vector3 MidTide = new Vector3(0, 0, 0);
     public Vector3 LowTide = new Vector3(0, -2.5f, 0);
 
+    public AudioSource audioSource;
+
     //Singleton
     public static GameManager Instance;
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        audioSource.Play();
     }
 
     private void Update()

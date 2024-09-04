@@ -8,6 +8,7 @@ public class AirplaneAttack : MonoBehaviour
     [SerializeField] GameObject enemyProjectile;
     [SerializeField] float attackTime = 2;
     [SerializeField] float extraAngle;
+    [SerializeField] AudioSource audioSource;
 
     public GameObject player;
     GameObject attackLevel;
@@ -33,6 +34,7 @@ public class AirplaneAttack : MonoBehaviour
             }
             var projectile = Instantiate(enemyProjectile, transform.position, Quaternion.Euler(0, 0, attackAngle));
             projectile.transform.SetParent(attackLevel.transform);
+            audioSource.Play();
 
             time = 0;
         }

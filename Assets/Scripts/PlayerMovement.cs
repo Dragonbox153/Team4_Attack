@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject TurretRotationPivot;
     public GameObject level;
 
+    public int MaxLives = 4;
     public int LivesLeft = 4;
 
     BoxCollider2D _collider;

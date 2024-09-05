@@ -16,7 +16,7 @@ public class ScoreBoard : MonoBehaviour
     public int PlayerScore = 0;
     public int _HISCORE = 0;
 
-    public GameObject[] _lives_images = new GameObject[3];
+    public GameObject[] _lives_images = new GameObject[4];
 
     public static ScoreBoard Inst;
     private void Awake()
@@ -37,6 +37,20 @@ public class ScoreBoard : MonoBehaviour
 
     public void AddScore(int ScoreToAdd)
     {
+        if(PlayerScore >= 50)
+        {
+            if (PlayerMovement.Instance.MaxLives == 4)
+            {
+                PlayerMovement.Instance.MaxLives = 5;
+
+                PlayerMovement.Instance.LivesLeft++;
+                for (int i = 0; i < PlayerMovement.Instance.LivesLeft-1; i++)
+                {
+                    _lives_images[i-1].SetActive(true);
+                }
+            }
+        }
+
         PlayerScore += ScoreToAdd;
 
         _currentScore_textBox.text = PlayerScore.ToString();

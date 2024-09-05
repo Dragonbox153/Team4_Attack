@@ -37,6 +37,10 @@ public class ScoreBoard : MonoBehaviour
 
     public void AddScore(int ScoreToAdd)
     {
+        PlayerScore += ScoreToAdd;
+
+        _currentScore_textBox.text = PlayerScore.ToString();
+        
         if(PlayerScore >= 50)
         {
             if (PlayerMovement.Instance.MaxLives == 4)
@@ -46,14 +50,10 @@ public class ScoreBoard : MonoBehaviour
                 PlayerMovement.Instance.LivesLeft++;
                 for (int i = 0; i < PlayerMovement.Instance.LivesLeft-1; i++)
                 {
-                    _lives_images[i-1].SetActive(true);
+                    _lives_images[i].SetActive(true);
                 }
             }
         }
-
-        PlayerScore += ScoreToAdd;
-
-        _currentScore_textBox.text = PlayerScore.ToString();
     }
 
     public void CheckIfNewHiScore()

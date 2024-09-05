@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameOverMenu : MonoBehaviour
 {
     [SerializeField] TMP_Text highScore;
-
+    [SerializeField] TMP_Text PlayerScore;
     [SerializeField] TMP_Text WinCondition;
     [SerializeField] TMP_Text WinCondition2;
     [SerializeField] TMP_Text LoseCondition;
@@ -45,6 +45,9 @@ public class GameOverMenu : MonoBehaviour
 
     public void SetupUITextForGameEnd()
     {
+        //Debug.Log("hishocre = " + ScoreBoard.Inst._HISCORE + "  playerscore = " + ScoreBoard.Inst.PlayerScore + "  and is highscore > player score = " + (ScoreBoard.Inst._HISCORE < ScoreBoard.Inst.PlayerScore));
+        PlayerScore.text = "Players Score : " + ScoreBoard.Inst.PlayerScore.ToString();
+
         if (ScoreBoard.Inst._HISCORE > ScoreBoard.Inst.PlayerScore)
         {
             LoseCondition.gameObject.SetActive(true);

@@ -192,7 +192,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -632,6 +632,10 @@ PrefabInstance:
       propertyPath: level
       value: 
       objectReference: {fileID: 3527624765618842558}
+    - target: {fileID: 990498443016308315, guid: 36c0e25dfb9da4d4eb8ac84603eaf640, type: 3}
+      propertyPath: LivesLeft
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2066887044463022042, guid: 36c0e25dfb9da4d4eb8ac84603eaf640, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.01

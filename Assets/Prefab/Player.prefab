@@ -304,7 +304,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8822026731380903784}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -361,7 +361,7 @@ MonoBehaviour:
   _proj: {fileID: 0}
   _audioSource: {fileID: -8061619627679674823}
   meter: {fileID: 778975756407047061, guid: b37aa3786add5f445a09efa4cf2ffc58, type: 3}
-  ammoCount: 15
+  _ammoCount: 15
   time: 0
 --- !u!114 &990498443016308315
 MonoBehaviour:

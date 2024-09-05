@@ -16,11 +16,17 @@ public class UFOMovement : MonoBehaviour
 
     GameObject player;
 
+    ObjectShaker shaker;
+
     public SpriteRenderer Lazer;
+
+    public int UFOHealth = 2;
 
     private void Start()
     {
         player = GameObject.Find("Player");
+
+        shaker = GetComponent<ObjectShaker>();
 
         StartCoroutine(ShootLazer());
     }
@@ -68,9 +74,18 @@ public class UFOMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Projectile")
         {
-            Destroy(gameObject);
-            var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
-            fallenEnemy.transform.parent = player.transform.parent;
+            if (UFOHealth > 0)
+            {
+                UFOHealth--;
+                shaker.ShakeObject();
+            }
+            else
+            {
+                Destroy(gameObject);
+                var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
+                fallenEnemy.transform.parent = player.transform.parent;
+            }
+
         }
         else if (collision.gameObject.tag == "Player")
         {

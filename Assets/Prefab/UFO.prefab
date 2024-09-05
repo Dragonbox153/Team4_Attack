@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 1972010309294469937}
   - component: {fileID: 4196972117301479210}
   - component: {fileID: 5027210128589749234}
+  - component: {fileID: 1520752121166380127}
   m_Layer: 0
   m_Name: UFO
   m_TagString: Enemy
@@ -268,6 +269,7 @@ MonoBehaviour:
   LazerShootTime: 2
   LazerLength: 30
   Lazer: {fileID: 3790224630623541079}
+  UFOHealth: 2
 --- !u!114 &5027210128589749234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +284,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2972348161005638834}
   DeadEnemySprite: {fileID: 0}
+--- !u!114 &1520752121166380127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448179651761642804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87b53910978b0343bc4443164971447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 0.1
+  shakeDuration: 0.3
+  spriteRenderer: {fileID: 2972348161005638834}
 --- !u!1001 &3349115543668454388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -369,6 +386,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4494359745508168402, guid: ef47fa4be19bd5f4082b23b3bac069c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9035998598049923903}
+    - targetCorrespondingSourceObject: {fileID: 4494359745508168402, guid: ef47fa4be19bd5f4082b23b3bac069c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3699888119124498575}
   m_SourcePrefab: {fileID: 100100000, guid: ef47fa4be19bd5f4082b23b3bac069c8, type: 3}
 --- !u!1 &1163440222840332582 stripped
 GameObject:
@@ -421,6 +441,18 @@ BoxCollider2D:
   m_AutoTiling: 1
   m_Size: {x: 0.38, y: 12}
   m_EdgeRadius: 0
+--- !u!114 &3699888119124498575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163440222840332582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5a2cbfeae50f949b2a475ee54bbb91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &3790224630623541079 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1937647282196866211, guid: ef47fa4be19bd5f4082b23b3bac069c8, type: 3}

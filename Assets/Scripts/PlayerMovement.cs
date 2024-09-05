@@ -109,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
         level.SetActive(false);
         GameOverMenu.instance.gameObject.SetActive(true);
+        GameOverMenu.instance.SetupUITextForGameEnd();
         ScoreBoard.Inst.gameObject.SetActive(false);
     }
 

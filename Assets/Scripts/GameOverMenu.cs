@@ -9,6 +9,9 @@ public class GameOverMenu : MonoBehaviour
 {
     [SerializeField] TMP_Text highScore;
 
+    [SerializeField] TMP_Text WinCondition;
+    [SerializeField] TMP_Text WinCondition2;
+    [SerializeField] TMP_Text LoseCondition;
 
     public static GameOverMenu instance;
     private void Awake()
@@ -37,6 +40,19 @@ public class GameOverMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnBack();
+        }
+    }
+
+    public void SetupUITextForGameEnd()
+    {
+        if (ScoreBoard.Inst._HISCORE > ScoreBoard.Inst.PlayerScore)
+        {
+            LoseCondition.gameObject.SetActive(true);
+        }
+        else
+        {
+            WinCondition.gameObject.SetActive(true);
+            WinCondition2.gameObject.SetActive(true);
         }
     }
 }

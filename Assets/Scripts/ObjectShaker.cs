@@ -20,6 +20,8 @@ public class ObjectShaker : MonoBehaviour
 
     public void ShakeObject()
     {
+        originalPosition = transform.position;
+
         StartCoroutine(ShakeCoroutine());
         StartCoroutine(BlinkCoroutine());
     }

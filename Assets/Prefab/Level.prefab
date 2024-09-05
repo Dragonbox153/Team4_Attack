@@ -688,6 +688,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1822872081
       objectReference: {fileID: 0}
+    - target: {fileID: 7203277874932824191, guid: 36c0e25dfb9da4d4eb8ac84603eaf640, type: 3}
+      propertyPath: playershoot
+      value: 
+      objectReference: {fileID: 5561986475503571553}
     - target: {fileID: 8822026731380903784, guid: 36c0e25dfb9da4d4eb8ac84603eaf640, type: 3}
       propertyPath: m_Name
       value: Player
@@ -713,5 +717,10 @@ GameObject:
 --- !u!4 &4719900239659504514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2066887044463022042, guid: 36c0e25dfb9da4d4eb8ac84603eaf640, type: 3}
+  m_PrefabInstance: {fileID: 6714720337524481112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5561986475503571553 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -8061619627679674823, guid: 36c0e25dfb9da4d4eb8ac84603eaf640, type: 3}
   m_PrefabInstance: {fileID: 6714720337524481112}
   m_PrefabAsset: {fileID: 0}

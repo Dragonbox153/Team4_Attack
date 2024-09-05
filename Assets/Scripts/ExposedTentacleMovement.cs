@@ -10,6 +10,8 @@ public class ExposedTentacleMovement : MonoBehaviour
 
     [SerializeField] GameObject enemyFallen;
 
+    [SerializeField] Transform DeathSpawnPoints;
+
     ObjectShaker shaker;
     
     GameObject player;
@@ -42,42 +44,35 @@ public class ExposedTentacleMovement : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             PlayerMovement.Instance.PlayerHit();
-            Destroy(gameObject);
+            TakeDamage();
         }
 
         if (collision.gameObject.tag == "Projectile")
         {
-            if (TentacleHealth > 0)
-            {
-                TentacleHealth--;
-                shaker.ShakeObject();
-            }
-            else
-            {
-                Destroy(gameObject);
-
-                var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
-                fallenEnemy.transform.parent = player.transform.parent;
-                GameManager.Instance.numTentaclesSpawned--;
-            }
+            TakeDamage();
         }
         if(collision.gameObject.tag == "FallenEnemy")
         {
-            if (TentacleHealth > 0)
-            {
-                TentacleHealth--;
-                shaker.ShakeObject();
-                Destroy(collision);
-            }
-            else
-            {
-                Destroy(gameObject);
-
-                var fallenEnemy = Instantiate(enemyFallen, transform.position, Quaternion.Euler(0, 0, 0));
-                fallenEnemy.transform.parent = player.transform.parent;
-                GameManager.Instance.numTentaclesSpawned--;
-            }
+            TakeDamage();
+            Destroy(collision);
         }
     }
-    
+
+    private void TakeDamage()
+    {
+        TentacleHealth--;
+        shaker.ShakeObject();
+
+        if(TentacleHealth == 0)
+        {
+            Destroy(gameObject);
+
+            for (int i = 0; i < DeathSpawnPoints.transform.childCount; i++)
+            {
+                Instantiate(enemyFallen, DeathSpawnPoints.transform.GetChild(i).position, Quaternion.Euler(0, 0, 0));
+            }
+
+            GameManager.Instance.numTentaclesSpawned--;
+        }
+    }
 }

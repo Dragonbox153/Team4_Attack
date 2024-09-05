@@ -359,7 +359,6 @@ MonoBehaviour:
   Projectile: {fileID: 433673963905124627, guid: 0f4082bd7e19521478a26eaa19bbb20c, type: 3}
   ProjectileShot: {fileID: 0}
   _proj: {fileID: 0}
-  _audioSource: {fileID: -8061619627679674823}
   meter: {fileID: 778975756407047061, guid: b37aa3786add5f445a09efa4cf2ffc58, type: 3}
   _ammoCount: 15
   time: 0
@@ -381,6 +380,7 @@ MonoBehaviour:
   leftEdgeWorldPositionX: 0
   TurretRotationPivot: {fileID: 7877301253246267712}
   level: {fileID: 3527624765618842558, guid: 7cf61d273253f1145b6bd071a27d1b38, type: 3}
+  MaxLives: 4
   LivesLeft: 4
   _barrelSpriteRenderer: {fileID: 3187215566071102819}
 --- !u!50 &3834566249267606085
@@ -420,10 +420,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 54421746273c28d43bd0daff92a5c501, type: 3}
-  m_Resource: {fileID: 8300000, guid: 54421746273c28d43bd0daff92a5c501, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 24c6c8f28d8826541b7da0ad12ad7763, type: 3}
+  m_Resource: {fileID: 8300000, guid: 24c6c8f28d8826541b7da0ad12ad7763, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.601
   m_Pitch: 1
   Loop: 0
   Mute: 0

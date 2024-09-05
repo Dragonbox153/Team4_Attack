@@ -14,6 +14,7 @@ public class ScoreBoard : MonoBehaviour
     public Image AmmoCountUI;
 
     public int PlayerScore = 0;
+    public int BelowFiftyScore = 0;
     public int _HISCORE = 0;
 
     public GameObject[] _lives_images = new GameObject[4];
@@ -38,21 +39,25 @@ public class ScoreBoard : MonoBehaviour
     public void AddScore(int ScoreToAdd)
     {
         PlayerScore += ScoreToAdd;
+        BelowFiftyScore += ScoreToAdd;
 
         _currentScore_textBox.text = PlayerScore.ToString();
         
-        if(PlayerScore >= 50)
+        if(BelowFiftyScore % 50 > 50)
         {
-            if (PlayerMovement.Instance.MaxLives == 4)
-            {
-                PlayerMovement.Instance.MaxLives = 5;
+            BelowFiftyScore -= 50;
+            PlayerMovement.Instance.LivesLeft++;
+            HealthImagesUIUpdate();
+        }
+    }
 
-                PlayerMovement.Instance.LivesLeft++;
-                for (int i = 0; i < PlayerMovement.Instance.LivesLeft-1; i++)
-                {
-                    _lives_images[i].SetActive(true);
-                }
-            }
+    void HealthImagesUIUpdate()
+    {
+        if (PlayerMovement.Instance.LivesLeft > 6) PlayerMovement.Instance.LivesLeft = 6;
+
+        for (int i = 0; i < PlayerMovement.Instance.LivesLeft - 1; i++)
+        {
+            _lives_images[i].SetActive(true);
         }
     }
 

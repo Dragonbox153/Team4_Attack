@@ -14,6 +14,8 @@ public class PlayerShoot : MonoBehaviour
 
     public SpriteRenderer meter;
 
+    public AudioSource playershoot;
+
     public int _ammoCount = 15;
     public int ammoCount 
     {
@@ -57,11 +59,9 @@ public class PlayerShoot : MonoBehaviour
 
     private void ShootProjectile()
     {
+        playershoot.Play();
         ProjectileShot = Instantiate(Projectile, transform.position, Quaternion.identity);
         _proj = ProjectileShot.GetComponent<Projectile>();
-
-
-
         _proj.Launch(ShootPoint.transform.position - transform.position, PlayerMovement.Instance.TurretRotationPivot.transform.rotation);
     }
 }

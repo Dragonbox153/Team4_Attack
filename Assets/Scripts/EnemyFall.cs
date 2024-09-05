@@ -28,7 +28,9 @@ public class EnemyFall : MonoBehaviour
         //}
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
+            if(collision.gameObject.name != "ExposedTentacle") 
+                Destroy(collision.gameObject);
+
             Destroy(gameObject);
             ScoreBoard.Inst.AddScore(3);
         }
